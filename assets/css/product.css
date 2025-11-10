@@ -1,0 +1,355 @@
+/* ===== Product Background Section ===== */
+.product-bg {
+  background-image: url("../images/nav_product/shop-banner-large.webp"); /* change path */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Overlay if needed for contrast */
+.product-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ 
+  z-index: 1;
+}
+
+/* Container keeps text above background */
+.product-bg .container {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: left; /* text aligned left */
+}
+
+/* ===== Text Section ===== */
+.product-text {
+  text-align: left;
+  color: #0096d6;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: fadeInText 1s ease-out forwards;
+  animation-delay: 1s; /* fade in after 1s */
+}
+
+.product-text h1 {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #0096d6;
+}
+
+.product-text p {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ff6b2c;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .product-bg {
+    height: auto;
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .product-bg .container {
+    justify-content: center;
+  }
+
+  .product-text {
+    text-align: center;
+  }
+
+  .product-text h1 {
+    font-size: 30px;
+  }
+
+  .product-text p {
+    font-size: 18px;
+  }
+}
+
+
+/* ===== Layout ===== */
+/* ===== All Products Section ===== */
+.all-products {
+  padding: 80px 0;
+}
+
+/* ===== Filter Section ===== */
+.filter-section h2 {
+  color: #0096d6;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* ===== Accordion Fix ===== */
+/* Accordion Styling */
+.accordion-item {
+  border: none;
+  border-bottom: 2px solid #00a5c8;
+  margin-bottom: 8px;
+  background: transparent;
+}
+
+.accordion-button {
+  color: #0096d6;
+  font-weight: 600;
+  background-color: transparent;
+  box-shadow: none !important;
+  border: none;
+  padding: 13px 20px;
+  transition: all 0.3s ease;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #00a5c8;
+  color: #fff;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-body {
+  padding: 10px 25px 20px;
+}
+
+.accordion-body label {
+  font-size: 15px;
+  color: #0096d6;
+  font-weight: 500;
+  display: block;
+}
+
+.accordion-body input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: #00a5c8;
+}
+
+/* Smooth collapse animation */
+.accordion-collapse {
+  transition: height 0.3s ease, opacity 0.3s ease;
+}
+
+
+
+/* ===== Product Grid Layout ===== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 30px;
+  margin-top: 30px;
+}
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+
+/* ===== Product Card ===== */
+.product-card {
+
+  border-radius: 15px;
+
+  padding: 20px;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Product image */
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Titles & Text */
+.product-card h5 {
+  font-size: 15px;
+  color: #00a5c8;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+.product-card h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Button */
+.product-card button {
+  background-color: #00a5c8;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+  background-color: #0088a8;
+}
+
+/* ===== Pagination ===== */
+.pagination-wrapper {
+  margin-top: 30px;
+}
+
+.page-btn {
+  border: none;
+  background: #e0e0e0;
+  color: #333;
+  padding: 8px 15px;
+  border-radius: 5px;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.page-btn.active,
+.page-btn:hover {
+  background-color: #00a5c8;
+  color: #fff;
+}
+
+/* ===== Responsive Grid ===== */
+@media (max-width: 992px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .product-card img {
+    height: 200px;
+  }
+}
+
+
+/* ===== Product Grid ===== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+.product-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 180px;
+  height: auto;
+}
+
+.product-card h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #444;
+  margin: 10px 0 5px;
+}
+
+.product-card h5 {
+  color: #ff6b2c;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.product-card button {
+  background: #0096d6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.product-card button:hover {
+  background: #007bb5;
+}
+
+/* ===== Pagination ===== */
+.pagination-wrapper {
+  margin-top: 40px;
+}
+
+.page-btn {
+  background: #e8f8ff;
+  border: none;
+  color: #0096d6;
+  padding: 10px 20px;
+  margin: 0 5px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.page-btn.active,
+.page-btn:hover {
+  background: #0096d6;
+  color: #fff;
+}
+

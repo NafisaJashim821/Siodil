@@ -1,3 +1,4 @@
+
 html, body {
   height: 100%;
   margin: 0;
@@ -20,6 +21,8 @@ html, body {
   --font-weight: 500;
   --nav-link-font-size: 20px;
 }
+
+
 
 /* --- Navbar --- */
 .navbar {
@@ -166,59 +169,258 @@ html, body {
   }
 }
 
-/* 
-   question sections
-*/
-.question-section {
-  background: #fff;
-  padding: 100px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+/* Background setup */
+
+
+.skincare-section {
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 350px; 
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.skincare-section {
+  
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain; 
+  background-color: #00a5c8;
+  width: 100%;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Content positioning */
+.skincare-section .container {
+  position: relative;
+  z-index: 2;
+}
+.img-fluid  {
+  width: 85%; 
+  max-width: 450px; 
+  object-fit: contain;
+  transform: translateX(-20px);
+  background-color:  #2ea2cc;
+  margin-top: 80px;
+  margin-left: 140px;
+   
+}
+
+
+
+/* Text animation */
+.skincare-text {
+  transform: translateY(40px);
+  opacity: 0;
+  animation: slideUp 1s ease-out forwards;
+ 
+}
+
+.skincare-text p{
+    font-size: 30px;
+
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Image animation */
+.skincare-image {
+  transform: scale(0.9);
+  opacity: 0;
+  animation: zoomIn 1.2s ease-out 0.3s forwards;
+}
+
+@keyframes zoomIn {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive text */
+@media (max-width: 767px) {
+  .skincare-section {
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .skincare-image {
+    margin-top: 20px;
+  }
+}
+
+/* siodil intro */
+.siodil-intro {
+  background-color: #ffffff; 
+  padding: 80px 20px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.question-section .content {
-  max-width: 600px;
-  height: 400px;
+.siodil-intro p {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #99ABB2;
+  font-weight: 350;
+  font-family: 'Poppins', sans-serif;
+}
+ 
+
+.lazy-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.question-text {
-  font-size: 2rem;
+.lazy-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* skin care part */
+
+
+/* ====== BASE (Laptop / Default) ====== */
+.skincare-tips {
+  background-color: #fff;
+  padding: 60px 0;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 90px;
+}
+
+.tip-card {
+  text-align: left;
+}
+
+.tip-card img {
+border-radius: 10px;
+  transition: transform 0.5s ease; /* smooth half-second zoom */
+  margin-top: -18px;
+  margin-left: 27px;
+  width: 92%;
+  transform-origin: center center;
+}
+
+.tip-card h4 {
+  color: #139dd9;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin-top: 15px;
+  font-weight: 700;
+}
+
+.tip-card p {
+  color: #7d8b97;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.read-more {
+  color: #00a5c8;
   font-weight: 600;
-  color: #009CD8;
-  margin-bottom: 30px;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-/* Custom button style with #009CD8 */
-.btn-outline-siodil {
-  color: #009CD8;
-  border: 2px solid #009CD8;
-  background: transparent;
-  transition: all 0.3s ease;
+.read-more:hover {
+  color: #0085a3;
 }
 
-.btn-outline-siodil:hover {
-  background: #009CD8;
-  color: #fff;
-  transform: scale(1.05);
+/* ====== TABLET (≤992px) ====== */
+@media (max-width: 992px) {
+  .skincare-tips {
+    padding: 50px 20px;
+  }
+
+  .tips-grid {
+    gap: 50px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tip-card img {
+    width: 104%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .tip-card h4 {
+    font-size: 1.1rem;
+  }
+
+  .tip-card p {
+    font-size: 0.9rem;
+  }
 }
 
-/* Make it responsive */
+/* ====== MOBILE (≤576px) ====== */
 @media (max-width: 576px) {
-  .question-text {
-    font-size: 1.5rem;
+  .skincare-tips {
+    padding: 40px 15px;
   }
 
-  .btn-outline-siodil {
+  .tips-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .tip-card {
+    text-align: center;
+  }
+
+  .tip-card img {
     width: 100%;
-    margin-bottom: 10px;
+    max-width: 500px;
+    border-radius: 10px;
+    margin: 0 auto 15px;
+    display: block;
   }
 
-  .button-group a:last-child {
-    margin-bottom: 0;
+  .tip-card h4 {
+    color: #009cd8;
+    font-size: 1.4rem;
+    line-height: 1.3;
+    margin-top: 10px;
+    font-weight: 700;
+  }
+
+  .tip-card p {
+    color: #7d8b97;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #009cd8;
+    font-weight: 600;
+    font-size: 0.95rem;
   }
 }
+
 
 .footer-section {
   background: #22a8e0;

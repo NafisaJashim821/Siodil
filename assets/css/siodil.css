@@ -171,12 +171,12 @@ html, body {
 /* 
    SLIDER SECTION
  */
+/* Slider Section */
 .slider-section {
   width: 100%;
   height: 100vh;
   position: relative;
   overflow: hidden;
-  margin-top: -5px;
 }
 
 .swiper {
@@ -185,36 +185,30 @@ html, body {
 }
 
 .swiper-slide {
+  position: relative;
   width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding-left: 5%;
+  height: 100%;
 }
 
-.swiper-slide::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+/* === Background Image === */
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
+/* === Text Overlay === */
 .slide-text {
-  position: relative;
-  z-index: 2;
-  text-align: left;
-  color: white;
-  padding-left: 8%;
-  padding-top: 60px;
-  max-width: 400px;
-  opacity: 0;
+  position: absolute;
+  top: 40%;
+  left: 5%;
   transform: translateY(30px);
+  opacity: 0;
+  color: white;
+  z-index: 2;
   transition: all 0.9s ease;
+  max-width: 45%;
 }
 
 .swiper-slide-active .slide-text {
@@ -222,12 +216,11 @@ html, body {
   transform: translateY(0);
 }
 
+/* Headings */
 .slide-text h2 {
   font-size: 3rem;
   font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  white-space: nowrap;
+  margin-bottom: 15px;
 }
 
 .slide-text h2::after {
@@ -235,65 +228,97 @@ html, body {
   display: block;
   width: 100px;
   height: 3px;
-  background-color: var(--secondary-clr);
-  margin: 10px auto 0;
+  background-color: var(--secondary-clr, #00bcd4);
+  margin-top: 10px;
 }
 
+/* Paragraph */
 .slide-text p {
   font-size: 1.2rem;
-  margin-top: 20px;
   color: #e0f7fa;
 }
 
+/* Pagination */
 .swiper-pagination-bullet {
   background: #fff;
   opacity: 0.6;
 }
-
 .swiper-pagination-bullet-active {
   background: #00bcd4;
   opacity: 1;
-} 
-/* mobile  */
+}
+
+/* ==============================
+   RESPONSIVE BEHAVIOR
+   ============================== */
+
+/* === Laptop === */
+@media (min-width: 1200px) {
+  .slide-text {
+    top: 42%;
+    max-width: 40%;
+  }
+  .slide-text h2 {
+    font-size: 3.2rem;
+  }
+  .slide-text p {
+    font-size: 1.3rem;
+  }
+}
+
+/* === Tablet === */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .slide-text {
+    top: 35%;
+    max-width: 60%;
+  }
+  .slide-text h2 {
+    font-size: 2rem;
+  }
+  .slide-text p {
+    font-size: 1rem;
+  }
+}
+
+/* === Mobile (<768px) === */
 @media (max-width: 767px) {
-  .mySwiper h2 {
-    font-size: 1.2rem;   
+  .slider-section {
+    height: 100vh; /* background full visible */
+  }
+
+  .swiper-slide img {
+    object-fit: cover;
+  }
+
+  .slide-text {
+    position: absolute;
+    top: 8%; /* text stays at top */
+    left: 06%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 90%;
+    max-width: 95%;
+    color: #ffffff;
+  }
+
+  .slide-text h2 {
+    font-size: 1.4rem;
     line-height: 1.3;
-    overflow: visible;
-    white-space: normal;  
+    margin-bottom: 8px;
   }
 
-  .mySwiper p {
-    font-size: 0.9rem;    
+  .slide-text h2::after {
+    margin: 8px auto 0;
+  }
+
+  .slide-text p {
+    font-size: 0.9rem;
     line-height: 1.4;
-    overflow: visible;
-    white-space: normal; 
+    margin: 0 auto;
   }
 }
 
 
-
-/* Tablet  */
-@media (min-width: 768px) {
-  .mySwiper h2 {
-    -webkit-line-clamp: 2;
-  }
-
-  .mySwiper p {
-    -webkit-line-clamp: 3;
-  }
-}
-
-/* Laptop */
-@media (min-width: 1024px) {
-  .mySwiper h2,
-  .mySwiper p {
-    -webkit-line-clamp: unset;
-    display: block;
-    overflow: visible;
-    text-overflow: unset;
-  }
-}
 
 
 /* 
@@ -546,8 +571,9 @@ html, body {
  */
 .product-carousel-section {
   background: #fff;
-  padding: 100px 0;
+  padding: 95px 10px;
   overflow: hidden;
+  margin-bottom: -50px;
 }
 
 .product-carousel-section .section-title {
@@ -555,9 +581,11 @@ html, body {
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--secondary-clr);
-  margin: 5px 0 40px 60px;
+  margin: -97px 0 40px 60px;
   text-transform: capitalize;
   letter-spacing: 0.5px;
+  top:10px;
+  
   
 }
 
@@ -587,7 +615,7 @@ html, body {
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--secondary-clr);
-  margin: 5px 0 40px 60px;
+  margin: -128px 0 40px 60px;
   text-transform: capitalize;
   letter-spacing: 0.5px;
 }
@@ -596,7 +624,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 60px 20px;
+  padding: -55px 20px;
   background: #fdfdfd;
   position: relative;
 }
@@ -611,14 +639,14 @@ html, body {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  margin: 80px 0 0 90px;
+  margin: 90px 0 0 93px;
   padding: 60px 20px;
 }
 
 .blog-image {
   position: absolute;
-  top: -60px;
-  left: -60px;
+  top: -70px;
+  left: -80px;
   width: 45%;
   border-radius: 20px;
   overflow: hidden;
@@ -680,16 +708,17 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 60px 60px;
+  padding: 60px;
 }
 
 .know-skin-container {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  max-width: 1200px;
+  max-width: 1800px;
   width: 100%;
   border-radius: 20px;
   overflow: hidden;
+ 
 }
 
 .skin-text {
@@ -700,7 +729,7 @@ html, body {
   justify-content: center;
   align-items: center;
   padding: 60px;
-  border-radius: 20px 0 0 20px;
+ 
   text-align: center;
 }
 
@@ -714,7 +743,7 @@ html, body {
 .find-out-btn {
   background: #fff;
   color: #68c6f7;
-  padding: 2px 35px;
+  padding: 10px 35px;
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
@@ -722,15 +751,21 @@ html, body {
   transition: all 0.3s ease;
 }
 
-.find-out-btn:hover { background: #e9f8ff; }
+.find-out-btn:hover {
+  background: #e9f8ff;
+}
 
 .skin-images {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* always 4 images per row */
+
   overflow: hidden;
 }
 
-.img { position: relative; overflow: hidden; }
+.img {
+  position: relative;
+  overflow: hidden;
+}
 
 .img img {
   width: 100%;
@@ -739,7 +774,90 @@ html, body {
   transition: transform 0.5s ease;
 }
 
-.img:hover img { transform: scale(1.1); }
+.img:hover img {
+  transform: scale(1.1);
+}
+
+
+
+/* Laptop (1024px) */
+@media (max-width: 1200px) {
+  .skin-text {
+    padding: 50px;
+  }
+
+  .skin-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .find-out-btn {
+    padding: 8px 30px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Tablet (768px) */
+@media (max-width: 1024px) {
+  .know-skin-container {
+    grid-template-columns: 1fr 1.1fr;
+   
+  }
+
+  .skin-text {
+    padding: 40px;
+  }
+
+  .skin-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .find-out-btn {
+   
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile (up to 767px) */
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+  .know-skin-container {
+    display: block; /* stack text and images vertically */
+  }
+
+  .skin-text {
+    width: 100%; /* full width */
+    padding: 30px;
+    text-align: center;
+   
+  }
+
+  .skin-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .find-out-btn {
+  
+    font-size: 0.85rem;
+  }
+
+  .skin-images {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* always 4 images in one row */
+   /* spacing between images */
+   
+  }
+
+  .img {
+    height: 100px; /* or any fixed height for uniformity */
+  }
+
+  .img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
 
 /* 
    siodil part
@@ -884,8 +1002,8 @@ html, body {
   grid-template-columns: 1fr 2fr; 
   gap: 50px;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
+  margin: 60px auto;
+  padding: 46px 46px;
   align-items: start;
 }
 

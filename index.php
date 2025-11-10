@@ -1,0 +1,305 @@
+<?php 
+
+$extra_css = ['assets/css/siodil.css'];
+$extra_js  = ['assets/js/siodil.js'];
+
+include_once('partials/header.php'); 
+?>
+<section class="slider-section">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <img src="assets/images/bg/bg1-removebg-preview-removebg-preview.png" alt="Slide 1">
+        <div class="slide-text">
+          <h2>FIGHT ACNE USING THE BEST</h2>
+          <p>Get acne-free, healthier and brighter skin with scientifically proven formulation.</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide">
+        <img src="assets/images/bg/bg2-removebg-preview-removebg-preview.png" alt="Slide 2">
+        <div class="slide-text">
+          <h2>SAY GOODBYE TO ACNE FOREVER</h2>
+          <p>Scientifically formulated to reduce blemishes & improve skin texture.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+
+
+<section class="our-section py-5 lazy-section">
+  <div class="container">
+    <div class="swiper lineupSwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="our-card">
+            <div class="our-container">
+              <div class="our-img">
+                <img src="assets/images/products/p2.png" alt="Brightening Lineup">
+              </div>
+              <div class="text-content">
+                <div class="heading1">Experience Our</div>
+                <div class="bg-text pink-bg">BRIGHTENING</div>
+                <div class="footer pink-text">LINE UP</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="swiper-slide">
+          <div class="our-card">
+            <div class="our-container">
+              <div class="our-img">
+                <img src="assets/images/products/p1.png" alt="Revitalizing Lineup">
+              </div>
+              <div class="text-content">
+                <div class="heading2">Check Out Our</div>
+                <div class="bg-text orange-bg">Acne</div>
+                <div class="footer orange-text">LINE UP</div>
+              </div>
+            </div>
+          </div>
+        </div> 
+
+       
+        <div class="swiper-slide">
+          <div class="our-card">
+            <div class="our-container">
+              <div class="our-img">
+                <img src="assets/images/products/p3.png" alt="Hydrating Lineup">
+              </div>
+              <div class="text-content">
+                <div class="heading3">Try Out Our</div>
+                <div class="bg-text blue-bg">MOISTURIZING</div>
+                <div class="footer blue-text">LINE UP</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <div class="swiper-slide">
+          <div class="our-card">
+            <div class="our-container">
+              <div class="our-img">
+                <img src="assets/images/products/p1.png" alt="Revitalizing Lineup">
+              </div>
+              <div class="text-content">
+                <div class="heading2">Check Out Our</div>
+                <div class="bg-text orange-bg">Acne</div>
+                <div class="footer orange-text">LINE UP</div>
+              </div>
+            </div>
+          </div>
+        </div> 
+
+        <div class="swiper-slide">
+          <div class="our-card">
+            <div class="our-container">
+              <div class="our-img">
+                <img src="assets/images/products/p2.png" alt="Brightening Lineup">
+              </div>
+              <div class="text-content">
+                <div class="heading1">Experience Our</div>
+                <div class="bg-text pink-bg">BRIGHTENING</div>
+                <div class="footer pink-text">LINE UP</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <div class="swiper-slide">
+          <div class="our-card">
+            <div class="our-container">
+              <div class="our-img">
+                <img src="assets/images/products/p3.png" alt="Hydrating Lineup">
+              </div>
+              <div class="text-content">
+                <div class="heading3">Try Out Our</div>
+                <div class="bg-text blue-bg">MOISTURIZING</div>
+                <div class="footer blue-text">LINE UP</div>
+              </div>
+            </div>
+          </div>
+        </div> 
+
+        <div class="swiper-slide">
+          <div class="our-card">
+            <div class="our-container">
+              <div class="our-img">
+                <img src="assets/images/products/p2.png" alt="Brightening Lineup">
+              </div>
+              <div class="text-content">
+                <div class="heading1">Experience Our</div>
+                <div class="bg-text pink-bg">BRIGHTENING</div>
+                <div class="footer pink-text">LINE UP</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <div class="swiper-slide">
+          <div class="our-card">
+            <div class="our-container">
+              <div class="our-img">
+                <img src="assets/images/products/p3.png" alt="Hydrating Lineup">
+              </div>
+              <div class="text-content">
+                <div class="heading3">Try Out Our</div>
+                <div class="bg-text blue-bg">MOISTURIZING</div>
+                <div class="footer blue-text">LINE UP</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       
+        
+
+        
+
+      </div>   
+</section>
+
+  <section class="product-carousel-section lazy-section">
+  <div class="container">
+    <h2 class="section-title">Products</h2>
+
+    <div class="swiper productSwiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <img src="assets/images/cart/c1.webp" alt="Anti-Acne Gel" class="product-img">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/images/cart/c2.png" alt="Sebi Gel" class="product-img">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/images/cart/c3.png" alt="Oil Free Lotion" class="product-img">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/images/cart/c4.png" alt="Cleanser" class="product-img">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/images/cart/c5.png" alt="Cleanser" class="product-img">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/images/cart/c6.png" alt="Cleanser" class="product-img">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/images/cart/c7.webp" alt="Cleanser" class="product-img">
+        </div>
+
+        <div class="swiper-slide">
+          <img src="assets/images/cart/c8.png" alt="Cleanser" class="product-img">
+        </div>
+
+      </div>
+ 
+      
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+</section>
+
+
+
+<h2 class="main-section-title">Perfect skin possible?</h2>
+
+
+<section class="blog-highlight-section lazy-section">
+  <div class="blog-card">
+    <div class="blog-image">
+      <img src="assets/images/acne.jpg" alt="Perfect Skin">
+    </div>
+
+    <div class="blog-content">
+      <h2>Acne breakouts! Know the reasons & get the solutions</h2>
+      <a href="#" class="blog-btn">Read now to find out</a>
+    </div>
+  </div>
+</section>
+
+<section class="dual-grid-section lazy-section">
+  <div class="dual-grid-container">
+
+    <!-- LEFT BOX -->
+    <div class="grid-box left-box">
+      <div class="grid-img-left">
+        <img src="assets/images/wash_away/w1.jpg" alt="Left Product">
+      </div>
+      <div class="grid-content">
+        <h2>Remove the dark spots, revitalize the beauty</h2>
+        <a href="#" class="grid-btn pink-btn">Read now to find out</a>
+      </div>
+    </div>
+
+    <!-- RIGHT BOX -->
+    <div class="grid-box right-box">
+      <div class="grid-img-right">
+        <img src="assets/images/wash_away/w2.jpg" alt="Right Product">
+      </div>
+      <div class="grid-content">
+        <h2>Wash away the impurities</h2>
+        <a href="#" class="grid-btn1 blue-btn1">Read now to find out</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="know-skin-section lazy-section">
+  <div class="know-skin-container">
+    <!-- LEFT CONTENT -->
+    <div class="skin-text">
+      <h2>KNOW YOUR SKIN</h2>
+      <a href="#" class="find-out-btn">FIND OUT</a>
+    </div>
+
+    <!-- RIGHT IMAGES -->
+    <div class="skin-images">
+      <div class="img"><img src="assets/images/know_ur_skin/k1.png" alt="skin 1"></div>
+      <div class="img"><img src="assets/images/know_ur_skin/k2.png" alt="skin 2"></div>
+      <div class="img"><img src="assets/images/know_ur_skin/k3.png" alt="skin 3"></div>
+      <div class="img"><img src="assets/images/know_ur_skin/k4.png" alt="skin 4"></div>
+    </div>
+  </div>
+</section>
+<section class="siodil-logo-section lazy-section">
+  <div class="siodil-logo-container">
+    <img src="assets/images/logo.png" alt="Siodil Logo">
+  </div>
+</section>
+
+
+
+
+<section class="siodil-description-section lazy-section">
+  <div class="container">
+    <p>
+      Presents a comprehensive medicated skin care digest that covers a variety of skin-related issues like brightening solutions, skin conditioning including moisturizing, scalp as well as hair care, and so on. From skin analysis to finding answers to every particular concern, ‘’SIODIL’’ is available as a full skin care reliability. Most importantly, with the advice and approval of leading dermatologists, the company has established legitimacy in the category of high-quality products while maintaining worldwide standards.
+    </p>
+  </div>
+</section>
+
+<?php include_once('partials/footer.php'); ?>

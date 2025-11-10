@@ -1,82 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Siodil</title>
+<?php 
 
-  <!-- Bootstrap & FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  
-  <!-- Swiper -->
-  <link href="https://unpkg.com/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://us.siodil.com/wp-content/themes/siodil/img/favicon/favicon-16x16.png">
+$base_url = "http://localhost/siodil/"; 
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="skin tips.css">
-</head>
 
-<body>
 
-  <!-- Top Bar -->
-  <div class="top-bar text-center text-white py-2" style="background-color: #00a5c8;">
-    Get Free Shipment on all Orders in USA
-  </div>
+$extra_css = [
+  '../assets/css/siodil.css',          
+  '../assets/css/skin_tips.css'  
+];
 
-  <!-- Navbar -->
-  <section class="navbar-section sticky-top lazy-section">
-    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
-      <div class="container-fluid d-flex align-items-center justify-content-between">
+$extra_js = [
+  '../assets/js/siodil.js', 
+  '../assets/js/skin-care.js'          
+];
 
-        <!-- Hamburger for mobile -->
-        <button class="navbar-toggler border-0 d-lg-none" type="button" data-bs-toggle="offcanvas"
-          data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Toggle navigation">
-          <i class="bi bi-list" style="font-size: 1.8rem; color: #00a5c8;"></i>
-        </button>
+$logoUrlOther = "../assets/images/logo.png";
+$footerUrlOther ="../assets/images/SIODIL-White-Logo-small-01-1.png";
 
-        <!-- Logo -->
-        <a class="navbar-brand d-flex align-items-center mx-auto mx-lg-0" href="siodil.html">
-          <img src="logo.png" alt="Siodil Logo" class="navbar-logo" style="height: 60px;">
-        </a>
 
-        <!-- Desktop Menu -->
-        <div class="collapse navbar-collapse d-none d-lg-flex justify-content-center" id="desktopMenu">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="skin-calculator.html">Skin Calculator</a></li>
-            <li class="nav-item"><a class="nav-link" href="skin-tips.html">Skin Tips</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
-            <li class="nav-item"><a class="nav-link" href="ingrediant.html">Ingredients</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-          </ul>
-        </div>
+include_once('../partials/header.php'); 
 
-        <!-- Search Box -->
-        <div class="search-box d-none d-lg-flex align-items-center lazy-section">
-          <input type="text" class="form-control" placeholder="Search">
-          <i class="bi bi-search ms-2"></i>
-        </div>
-      </div>
-    </nav>
-  </section>
-
-  <!--  OFFCANVAS MENU for MOBILE -->
-  <div class="offcanvas offcanvas-start d-lg-none" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="mobileMenuLabel">Menu</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <ul class="navbar-nav text-center">
-        <li class="nav-item"><a class="nav-link" href="skin calculator.html">Skin Calculator</a></li>
-        <li class="nav-item"><a class="nav-link" href="skin-tips.html">Skin Tips</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Products</a></li>
-        <li class="nav-item"><a class="nav-link" href="ingrediant.html">Ingredients</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-      </ul>
-    </div>
-  </div> 
+?>
 
   <section class="skincare-section d-flex align-items-center lazy-section">
     <div class="container">
@@ -90,7 +34,7 @@
 
         <!-- Image -->
         <div class="col-md-6 text-center">
-          <img src="skin_care_tips/skin_care_bg-Photoroom.png" alt="Skincare Model" class="img-fluid skincare-image">
+          <img src="../assets/images/skin_care_tips/skin_care_bg-Photoroom.png" alt="Skincare Model" class="img-fluid skincare-image">
         </div>
       </div>
     </div>
@@ -116,7 +60,7 @@
       <div class="tip-card d-flex align-items-center lazy-section">
         <div class="row g-3 align-items-center w-100">
           <div class="col-5">
-            <img src="skin_care_pic/s1.webp" alt="Ato Range" class="img-fluid rounded-3">
+            <img src="../assets/images/skin_care_pic/s1.webp" alt="Ato Range" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
             <h4 class="fw-bold">Siodil’s Ato Range: More Than Moisture, a Holistic Skincare Experience</h4>
@@ -130,7 +74,7 @@
       <div class="tip-card d-flex align-items-center lazy-section">
         <div class="row g-3 align-items-center w-100">
           <div class="col-5">
-            <img src="skin_care_pic/s2.jpg" alt="Acne" class="img-fluid rounded-3">
+            <img src="../assets/images/skin_care_pic/s2.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
             <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
@@ -144,7 +88,7 @@
       <div class="tip-card d-flex align-items-center lazy-section">
         <div class="row g-3 align-items-center w-100">
           <div class="col-5">
-            <img src="skin_care_pic/s3.jpg" alt="Acne" class="img-fluid rounded-3">
+            <img src="../assets/images/skin_care_pic/s3.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
             <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
@@ -158,7 +102,7 @@
       <div class="tip-card d-flex align-items-center lazy-section">
         <div class="row g-3 align-items-center w-100">
           <div class="col-5">
-            <img src="skin_care_pic/s4.jpg" alt="Acne" class="img-fluid rounded-3">
+            <img src="../assets/images/skin_care_pic/s4.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
             <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
@@ -172,7 +116,7 @@
       <div class="tip-card d-flex align-items-center lazy-section">
         <div class="row g-3 align-items-center w-100">
           <div class="col-5">
-            <img src="skin_care_pic/s5.jpg" alt="Ato Range" class="img-fluid rounded-3">
+            <img src="../assets/images/skin_care_pic/s5.jpg" alt="Ato Range" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
             <h4 class="fw-bold">Siodil’s Ato Range: More Than Moisture, a Holistic Skincare Experience</h4>
@@ -186,7 +130,7 @@
       <div class="tip-card d-flex align-items-center lazy-section">
         <div class="row g-3 align-items-center w-100">
           <div class="col-5">
-            <img src="skin_care_pic/s6.jpg" alt="Acne" class="img-fluid rounded-3">
+            <img src="../assets/images/skin_care_pic/s6.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
             <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
@@ -200,7 +144,7 @@
       <div class="tip-card d-flex align-items-center lazy-section">
         <div class="row g-3 align-items-center w-100">
           <div class="col-5">
-            <img src="skin_care_pic/s7.jpg" alt="Acne" class="img-fluid rounded-3">
+            <img src="../assets/images/skin_care_pic/s7.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
             <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
@@ -214,7 +158,7 @@
       <div class="tip-card d-flex align-items-center lazy-section">
         <div class="row g-3 align-items-center w-100">
           <div class="col-5">
-            <img src="skin_care_pic/s8.jpg" alt="Acne" class="img-fluid rounded-3">
+            <img src="../assets/images/skin_care_pic/s8.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
             <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
@@ -228,7 +172,7 @@
       <div class="tip-card d-flex align-items-center lazy-section">
         <div class="row g-3 align-items-center w-100">
           <div class="col-5">
-            <img src="skin_care_pic/s9.jpg" alt="Acne" class="img-fluid rounded-3">
+            <img src="../assets/images/skin_care_pic/s9.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
             <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
@@ -242,7 +186,7 @@
       <div class="tip-card d-flex align-items-center lazy-section">
         <div class="row g-3 align-items-center w-100">
           <div class="col-5">
-            <img src="skin_care_pic/s10.jpg" alt="Acne" class="img-fluid rounded-3">
+            <img src="../assets/images/skin_care_pic/s10.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
             <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
@@ -258,58 +202,7 @@
 </section>
 
 <!-- footer part -->
- 
-<footer class="footer-section lazy-section">
-  <div class="footer-container">
 
-    <!--  (Logo) -->
-    <div class="footer-logo lazy-section">
-      <img src="SIODIL-White-Logo-small-01-1.png" alt="Siodil Logo">
-      <p>DOCTOR RECOMMENDED</p>
-    </div>
-
-    <!--  Column 1 -->
-    <div class="footer-links lazy-section">
-      <ul>
-        <li><a href="#">Our Products</a></li>
-        <li><a href="#">Ingredients</a></li>
-        <li><a href="#">Skin Smarts</a></li>
-        <li><a href="#">Why SIODIL</a></li>
-        <li><a href="#">Skincare Solution</a></li>
-        <li><a href="#">Glossary</a></li>
-      </ul>
-    </div>
-
-    <!-- Column 2 -->
-    <div class="footer-links lazy-section">
-      <ul>
-        <li><a href="#">Terms and Conditions</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">FAQs</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">News</a></li>
-      </ul>
-    </div>
-
-    <!-- Right Column -->
-    <div class="footer-contact lazy-section">
-      <h4>REMARK LLC</h4>
-      <p>71 Teresa place<br>Hempstead, New York 11550</p>
-      <p><a href="https://www.siodil.com">www.siodil.com</a><br>+1 (585) 512 7594</p>
-
-      <div class="footer-social lazy-section">
-        <p>Follow us</p>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</footer>
 
   
 
@@ -317,9 +210,9 @@
 
 
 
+<?php include_once('../partials/footer.php'); ?>
 
-
-     <script src="skin care.js"></script>
+    
 
   <!-- JS (required for Offcanvas) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
