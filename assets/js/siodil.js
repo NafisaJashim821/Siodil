@@ -8,25 +8,26 @@ var swiper = new Swiper(".mySwiper", {
       delay: 3000,
       disableOnInteraction: false,
     },
+ 
     effect: "fade",
     speed: 1000,
   });
   
   
 var brightswiper = new Swiper(".lineupSwiper", {
-  loop: true,
+  loop: true,  
   centeredSlides: true,
-  slidesPerView: 1.6, 
+  slidesPerView: 1.6,
   spaceBetween: 60,
   speed: 1000,
-  
   autoplay: {
     delay: 2000,
     disableOnInteraction: false,
   },
   pagination: {
-    el: ".swiper-pagination",
+    el: ".lineup-pagination",
     clickable: true,
+    type: "bullets",
   },
   breakpoints: {
     0: { slidesPerView: 1, spaceBetween: 20 },
@@ -38,33 +39,29 @@ var brightswiper = new Swiper(".lineupSwiper", {
 
 
 
-
-
-var swiper = new Swiper(".productSwiper", {
-  slidesPerView: 1, 
-  spaceBetween: 20, 
+var productSwiper = new Swiper(".productSwiper", {
+  slidesPerView: 1,
+  spaceBetween: 20,
   loop: true,
   autoplay: {
-    delay: 3000,
+    delay: 30000000,
     disableOnInteraction: false,
   },
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
   },
-   navigation: {
-    nextEl: ".product-carousel-section .swiper-button-next",
-    prevEl: ".product-carousel-section .swiper-button-prev",
+  navigation: {
+    nextEl: ".next-arrow",
+    prevEl: ".prev-arrow",
   },
   breakpoints: {
-    768: {  
-      slidesPerView: 2,
-    },
-    1024: { 
-      slidesPerView: 4,
-    },
+    768: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 },
   },
 });
+
+
 
 
 document.addEventListener("DOMContentLoaded", () => {

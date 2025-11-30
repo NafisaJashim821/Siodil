@@ -1,13 +1,17 @@
 <?php 
+$page_title = "Abput Us – SIODIL";
 
 $base_url = "http://localhost/siodil/"; 
 
 
 
 $extra_css = [
-  '../assets/css/siodil.css',          
-  '../assets/css/about.css'  
+    $base_url . 'assets/css/siodil.css',
+    $base_url . 'assets/css/about.css',
+      $base_url . 'assets/icomoon/style.css',
+    $base_url . 'assets/font/fonts.css'
 ];
+
 
 $extra_js = [
   '../assets/js/siodil.js' 

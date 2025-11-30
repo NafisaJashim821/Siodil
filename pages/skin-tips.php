@@ -1,12 +1,17 @@
 <?php 
 
+$page_title = "Skincare Tips – SIODIL"; 
+
 $base_url = "http://localhost/siodil/"; 
 
 
 
 $extra_css = [
-  '../assets/css/siodil.css',          
-  '../assets/css/skin_tips.css'  
+    $base_url . 'assets/css/siodil.css',
+     
+    $base_url . 'assets/css/skin_tips.css' ,
+    $base_url . 'assets/icomoon/style.css',
+    $base_url . 'assets/font/fonts.css' 
 ];
 
 $extra_js = [

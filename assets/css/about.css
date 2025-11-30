@@ -1,5 +1,49 @@
- /* skin-analyzer-section */
+/* ---------------------------------------------------
+   GLOBAL LAYOUT (Beautiful & Clean)
+------------------------------------------------------*/
+ html,body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+    font-family: 'Gotham';
+ 
+  background-color: #FCFCFC;
+  font-size: 18px;
+}
 
+/* Global container sizes */
+.page-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (min-width: 768px) { 
+  .page-container { max-width: 720px; padding: 0 30px; } 
+}
+
+@media (min-width: 1024px) { 
+  .page-container { max-width: 960px; padding: 0 40px; } 
+}
+
+@media (min-width: 1440px) { 
+  .page-container { max-width: 1300px; padding: 0 60px; } 
+}
+
+@media (min-width: 2560px) { 
+  .page-container { max-width: 2000px; padding: 0 80px; } 
+}
+
+
+/* Smooth transitions everywhere */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* ---------------------------------------------------
+   1️⃣ WHY SIODIL TOP BANNER
+------------------------------------------------------*/
 .why-siodil-section {
   background-image: url("../images/about/aboutus-2.jpg");
   background-repeat: no-repeat;
@@ -11,142 +55,101 @@
   overflow: hidden;
 }
 
-.why-siodil-content {
-  text-align: left;
-  color: #ffffff;
-  margin-top: 150px;
-  margin-left: 70px;
-}
-
-/* Title */
-.why-siodil-content h2 {
-  font-size: 60px;
+.why-siodil-section h2 {
+  font-size: 48px;
   font-weight: 700;
+  color: #ffffff;
+  margin-top: 70px;
+  margin-left: 67px;
+   opacity: 0; /* important */
+  transform: translateY(20px);
+  animation: fadeIn 0.6s ease forwards;
+  animation-delay: 0.3s; /* h2 comes first */ /* smooth transition for any property change */
 }
 
+.why-siodil-section h2 span {
+  color: #ffffff;
+  opacity: 0; /* important */
+  transform: translateY(20px);
+  animation: fadeIn 0.6s ease forwards;
+  animation-delay: 0.3s; /* h2 comes first */
+}
 
-.why-siodil-content p,h2 {
-  font-size: 26px;
-  margin-top: 7px;
-  font-weight: 500;
+.why-siodil-section p {
+  font-size: 22px;
+  color: #ffffff;
+  margin-top: 70px;
+  margin-left: 67px;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeIn 0.5s ease 0.8s forwards; /* starts after 1s, lasts 2s */
-}
-
-/* Keyframes for fade-in */
+  animation: fadeIn 0.6s ease forwards;
+  animation-delay: 0.6s; /* p comes after h2 */
+} 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
-  .why-siodil-section {
-    height: 350px;
-  }
-  .why-siodil-content {
-    margin-left: 30px;
-  }
-  .why-siodil-content h2 {
-    font-size: 36px;
-  }
-  .why-siodil-content p {
-    font-size: 18px;
-  }
+  .why-siodil-section h2 { font-size: 32px; }
+  .why-siodil-section p { font-size: 18px; }
 }
 
-
-.why-siodil-description {
-  text-align: center;
-  padding: 60px 20px;
-  background: #ffffff;
-}
-
-.why-siodil-description .container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
+/* ---------------------------------------------------
+   2️⃣ WHY SIODIL DESCRIPTION
+------------------------------------------------------*/
 .why-siodil-description p {
   font-size: 18px;
   line-height: 1.8;
-  color:  #99ABB2;
-  font-weight: 400;
+  color: var(--dark-text);
+  text-align: justify;
+   color:  #99ABB2;
+   margin-top: 50px;
+   margin-bottom: 20px;
 }
 
- /* .skin-analyzer-section */
-
- .skin-analyzer-section {
-  background-color: #fff;
-  padding: 80px 20px;
-}
-
-.skin-analyzer-section .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
+/* ---------------------------------------------------
+   3️⃣ SKIN ANALYZER SECTION
+------------------------------------------------------*/
 .skin-analyzer-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 40px;
   flex-wrap: wrap;
-}
-/* skin-analyzer */
-/* Left text */
-.skin-analyzer-section {
-  background-color: #fff;
-  padding: 80px 20px;
+  margin-top: 20px;
 }
 
-.skin-analyzer-section .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.skin-analyzer-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-/* Left text */
 .skin-analyzer-text {
   flex: 1 1 55%;
 }
 
 .skin-analyzer-text h2 {
   font-size: 36px;
-  color: #009ee2;
   font-weight: 700;
-  margin-bottom: 10px;
+  color: var(--primary);
+  color: #009CD8;
 }
 
 .skin-analyzer-text hr {
-  width: 50px;
+  width: 60px;
   height: 3px;
-  background-color: #e0e0e0;
+  background-color: #dce3e9;
   border: none;
-  margin-bottom: 20px;
+  margin: 20px 0 25px;
 }
 
 .skin-analyzer-text p {
   font-size: 18px;
   line-height: 1.8;
-  color: #7a8a9a;
+  color: var(--dark-text);
+  text-align: justify;
+   color:  #99ABB2;
 }
 
-/* Right image */
 .skin-analyzer-image {
   flex: 1 1 40%;
   display: flex;
@@ -155,77 +158,72 @@
 
 .skin-analyzer-image img {
   width: 100%;
-  max-width: 500px;
+  max-width: 480px;
   border-radius: 8px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.1);
 }
 
-/* Responsive */
-@media (max-width: 992px) {
+/* Mobile Screens (≤768px) */
+@media (max-width: 768px) {
   .skin-analyzer-content {
     flex-direction: column;
-    text-align: center;
+    text-align: center; /* centers the paragraph and image */
   }
-  .skin-analyzer-text {
-    flex: 1 1 100%;
-  }
+  .skin-analyzer-text,
   .skin-analyzer-image {
     flex: 1 1 100%;
   }
   .skin-analyzer-text h2 {
-    font-size: 28px;
+    font-size: 26px;
+    text-align: left;   /* keep h2 aligned to the left */
+    margin-right: 0;
+    margin-bottom: 10px; /* space below h2 */
   }
   .skin-analyzer-text p {
-    font-size: 16px;
+    font-size: 14px;
+    text-align: center;  /* paragraph can stay centered */
+  }
+  .skin-analyzer-image img {
+    max-width: 90%;
+    margin: 20px auto 0;
   }
 }
 
-/* dermatologist-section */
 
-
-.dermatologist-section {
-  background-color: #ffffff;
-  padding: 30px 20px;
-}
-
-.dermatologist-section .container {
-  max-width: 1000px;
-  margin: 27px 28px;
-}
-
+/* ---------------------------------------------------
+   4️⃣ DERMATOLOGIST SECTION
+------------------------------------------------------*/
 .dermatologist-section h2 {
   font-size: 36px;
-  color: #009ee2;
+  color: var(--primary);
   font-weight: 700;
-  margin-bottom: 10px;
-  margin-left: -10px;
+  color: #009CD8;
+  margin-top: 20px;
 }
 
 .dermatologist-section hr {
-  width: 80px;
+  width: 60px;
   height: 3px;
-  background-color: #e6e6e6;
+  background-color: #e2e2e2;
   border: none;
-  margin-bottom: 25px;
+  margin: 20px 0 25px;
 }
 
 .dermatologist-section p {
   font-size: 18px;
   line-height: 1.8;
-  color: #7a8a9a;
-  font-weight: 400;
+  color: var(--dark-text);
+  text-align: justify;
+   color:  #99ABB2;
 }
 
-/* Responsive */
+/* Mobile */
 @media (max-width: 768px) {
-  .dermatologist-section {
-    padding: 60px 15px;
-  }
+  .dermatologist-section h2 { font-size: 28px; }
+}
 
-  .dermatologist-section h2 {
-    font-size: 28px;
-  }
-
-  .dermatologist-section p {
-    font-size: 16px;
-  }
+/* Big screen */
+@media (min-width: 2560px) {
+  .dermatologist-section h2 { font-size: 48px; }
+  .dermatologist-section p { font-size: 24px; }
 }

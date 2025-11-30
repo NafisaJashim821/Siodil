@@ -1,6 +1,12 @@
 <?php 
 
-$extra_css = ['assets/css/siodil.css'];
+$extra_css = [
+    'assets/css/siodil.css',
+    'assets/icomoon/style.css',
+    'assets/font/fonts.css',
+
+];
+
 $extra_js  = ['assets/js/siodil.js'];
 
 include_once('partials/header.php'); 
@@ -30,15 +36,19 @@ include_once('partials/header.php');
     </div>
 
     <!-- Pagination -->
-    <div class="swiper-pagination"></div>
+     <div class="swiper-pagination"></div>
+  
+
   </div>
 </section>
 
 
 
 <section class="our-section py-5 lazy-section">
+
   <div class="container">
     <div class="swiper lineupSwiper">
+
       <div class="swiper-wrapper">
 
         <!-- Slide 1 -->
@@ -57,7 +67,7 @@ include_once('partials/header.php');
           </div>
         </div>
 
-        
+        <!-- Slide 2 -->
         <div class="swiper-slide">
           <div class="our-card">
             <div class="our-container">
@@ -73,7 +83,7 @@ include_once('partials/header.php');
           </div>
         </div> 
 
-       
+        <!-- Slide 3 -->
         <div class="swiper-slide">
           <div class="our-card">
             <div class="our-container">
@@ -89,7 +99,8 @@ include_once('partials/header.php');
           </div>
         </div>
 
-         <div class="swiper-slide">
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
           <div class="our-card">
             <div class="our-container">
               <div class="our-img">
@@ -104,6 +115,7 @@ include_once('partials/header.php');
           </div>
         </div> 
 
+        <!-- Slide 5 -->
         <div class="swiper-slide">
           <div class="our-card">
             <div class="our-container">
@@ -119,40 +131,11 @@ include_once('partials/header.php');
           </div>
         </div>
 
-         <div class="swiper-slide">
-          <div class="our-card">
-            <div class="our-container">
-              <div class="our-img">
-                <img src="assets/images/products/p3.png" alt="Hydrating Lineup">
-              </div>
-              <div class="text-content">
-                <div class="heading3">Try Out Our</div>
-                <div class="bg-text blue-bg">MOISTURIZING</div>
-                <div class="footer blue-text">LINE UP</div>
-              </div>
-            </div>
-          </div>
-        </div> 
-
+        <!-- Slide 6 -->
         <div class="swiper-slide">
           <div class="our-card">
             <div class="our-container">
               <div class="our-img">
-                <img src="assets/images/products/p2.png" alt="Brightening Lineup">
-              </div>
-              <div class="text-content">
-                <div class="heading1">Experience Our</div>
-                <div class="bg-text pink-bg">BRIGHTENING</div>
-                <div class="footer pink-text">LINE UP</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-         <div class="swiper-slide">
-          <div class="our-card">
-            <div class="our-container">
-              <div class="our-img">
                 <img src="assets/images/products/p3.png" alt="Hydrating Lineup">
               </div>
               <div class="text-content">
@@ -164,65 +147,214 @@ include_once('partials/header.php');
           </div>
         </div>
 
-       
-        
+      </div>
 
-        
+    
+      <div class="lineup-pagination"></div>
 
-      </div>   
+    </div>
+
+  </div>
+
 </section>
 
-  <section class="product-carousel-section lazy-section">
+
+
+<section class="product-carousel-section lazy-section">
   <div class="container">
     <h2 class="section-title">Products</h2>
 
     <div class="swiper productSwiper">
       <div class="swiper-wrapper">
 
-        <div class="swiper-slide">
-          <img src="assets/images/cart/c1.webp" alt="Anti-Acne Gel" class="product-img">
+ <div class="swiper-slide product-card">
+
+    <a href="pages/product-details.php" class="product-link">
+
+        <div class="product-content">
+            <img src="assets/images/cart/c1.webp" alt="Anti-Acne Gel" class="product-img">
+
+            <h3 class="product-title-main">ANTI-ACNE</h3>
+            <h4 class="product-title-sub">CREAM</h4>
+
+            <p class="product-details">
+                Siodil Anti-Acne Cream is an advanced anti-acne solution...
+            </p>
         </div>
 
-        <div class="swiper-slide">
-          <img src="assets/images/cart/c2.png" alt="Sebi Gel" class="product-img">
+    </a>
+
+</div>
+
+
+
+
+        <div class="swiper-slide product-card">
+
+    <a href="product-details.html" class="product-link">
+
+        <div class="product-content">
+            <img src="assets/images/cart/c2.png" alt="Anti-Acne Gel" class="product-img">
+
+            <h3 class="product-title-main">ANTI-ACNE</h3>
+            <h4 class="product-title-sub">CREAM</h4>
+
+            <p class="product-details">
+                Siodil Anti-Acne Cream is an advanced anti-acne solution...
+            </p>
         </div>
 
-        <div class="swiper-slide">
-          <img src="assets/images/cart/c3.png" alt="Oil Free Lotion" class="product-img">
+    </a>
+
+</div>
+
+              <div class="swiper-slide product-card">
+
+    <a href="product-details.html" class="product-link">
+
+        <div class="product-content">
+            <img src="assets/images/cart/c3.png" alt="Anti-Acne Gel" class="product-img">
+
+            <h3 class="product-title-main">ANTI-ACNE</h3>
+            <h4 class="product-title-sub">CREAM</h4>
+
+            <p class="product-details">
+                Siodil Anti-Acne Cream is an advanced anti-acne solution...
+            </p>
         </div>
 
-        <div class="swiper-slide">
-          <img src="assets/images/cart/c4.png" alt="Cleanser" class="product-img">
+    </a>
+
+</div>
+
+               <div class="swiper-slide product-card">
+
+    <a href="product-details.html" class="product-link">
+
+        <div class="product-content">
+            <img src="assets/images/cart/c4.png" alt="Anti-Acne Gel" class="product-img">
+
+            <h3 class="product-title-main">ANTI-ACNE</h3>
+            <h4 class="product-title-sub">CREAM</h4>
+
+            <p class="product-details">
+                Siodil Anti-Acne Cream is an advanced anti-acne solution...
+            </p>
         </div>
 
-        <div class="swiper-slide">
-          <img src="assets/images/cart/c5.png" alt="Cleanser" class="product-img">
+    </a>
+
+</div>
+
+               <div class="swiper-slide product-card">
+
+    <a href="product-details.html" class="product-link">
+
+        <div class="product-content">
+            <img src="assets/images/cart/c5.png" alt="Anti-Acne Gel" class="product-img">
+
+            <h3 class="product-title-main">ANTI-ACNE</h3>
+            <h4 class="product-title-sub">CREAM</h4>
+
+            <p class="product-details">
+                Siodil Anti-Acne Cream is an advanced anti-acne solution...
+            </p>
         </div>
 
-        <div class="swiper-slide">
-          <img src="assets/images/cart/c6.png" alt="Cleanser" class="product-img">
+    </a>
+
+</div>
+
+               <div class="swiper-slide product-card">
+
+    <a href="product-details.html" class="product-link">
+
+        <div class="product-content">
+            <img src="assets/images/cart/c6.png" alt="Anti-Acne Gel" class="product-img">
+
+            <h3 class="product-title-main">ANTI-ACNE</h3>
+            <h4 class="product-title-sub">CREAM</h4>
+
+            <p class="product-details">
+                Siodil Anti-Acne Cream is an advanced anti-acne solution...
+            </p>
         </div>
 
-        <div class="swiper-slide">
-          <img src="assets/images/cart/c7.webp" alt="Cleanser" class="product-img">
+    </a>
+
+</div>
+
+              <div class="swiper-slide product-card">
+
+    <a href="product-details.html" class="product-link">
+
+        <div class="product-content">
+            <img src="assets/images/cart/c7.webp" alt="Anti-Acne Gel" class="product-img">
+
+            <h3 class="product-title-main">ANTI-ACNE</h3>
+            <h4 class="product-title-sub">CREAM</h4>
+
+            <p class="product-details">
+                Siodil Anti-Acne Cream is an advanced anti-acne solution...
+            </p>
         </div>
 
-        <div class="swiper-slide">
-          <img src="assets/images/cart/c8.png" alt="Cleanser" class="product-img">
+    </a>
+
+</div>
+
+              <div class="swiper-slide product-card">
+
+    <a href="product-details.html" class="product-link">
+
+        <div class="product-content">
+            <img src="assets/images/cart/c2.png" alt="Anti-Acne Gel" class="product-img">
+
+            <h3 class="product-title-main">ANTI-ACNE</h3>
+            <h4 class="product-title-sub">CREAM</h4>
+
+            <p class="product-details">
+                Siodil Anti-Acne Cream is an advanced anti-acne solution...
+            </p>
         </div>
+
+    </a>
+
+</div>
 
       </div>
- 
+
+      <!-- Pagination -->
+      <div class="upper-pagination"></div>
       
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+
+ <div class="custom-arrow next-arrow">
+    <i class="fa-solid fa-chevron-right"></i>
+</div>
+
+<div class="custom-arrow prev-arrow">
+    <i class="fa-solid fa-chevron-left"></i>
+</div> 
+
+ 
+
+
+
+
+
+
+
     </div>
   </div>
 </section>
 
 
 
-<h2 class="main-section-title">Perfect skin possible?</h2>
+
+<h2 class="main-section-title lazy-section">Perfect skin possible?</h2>
+
+
+
 
 
 <section class="blog-highlight-section lazy-section">
@@ -265,6 +397,8 @@ include_once('partials/header.php');
 
   </div>
 </section>
+
+
 
 
 

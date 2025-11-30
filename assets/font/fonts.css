@@ -1,0 +1,44 @@
+/* Gotham Black */
+@font-face {
+    font-family: 'Gotham';
+    src: url('Gotham-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Gotham Bold */
+@font-face {
+    font-family: 'Gotham';
+    src: url('Gotham-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Gotham Bold Italic */
+@font-face {
+    font-family: 'Gotham';
+    src: url('Gotham-BoldItalic.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Gotham Book (Regular) */
+@font-face {
+    font-family: 'Gotham';
+    src: url('Gotham-Book.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Gotham Medium */
+@font-face {
+    font-family: 'Gotham';
+    src: url('Gotham-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}

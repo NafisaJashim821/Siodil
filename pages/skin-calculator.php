@@ -1,13 +1,19 @@
 <?php 
+$page_title = "Skin Calculator – SIODIL"; 
 
 $base_url = "http://localhost/siodil/"; // adjust according to your setup
 
 
 
 $extra_css = [
-  '../assets/css/siodil.css',          
-  '../assets/css/skin-calculator.css'  
+    $base_url . 'assets/css/siodil.css',
+    $base_url . 'assets/icomoon/style.css',
+    $base_url . 'assets/font/fonts.css',          
+    $base_url . 'assets/css/skin-calculator.css'
 ];
+
+
+
 
 $extra_js = [
   '../assets/js/siodil.js',          
@@ -19,7 +25,9 @@ $footerUrlOther ="../assets/images/SIODIL-White-Logo-small-01-1.png";
 
 include_once('../partials/header.php'); 
 
+
 ?>
+
 
    <section class="question-section d-flex justify-content-center align-items-center text-center">
   <div class="content">

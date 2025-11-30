@@ -20,7 +20,10 @@ $logoUrl = $base_url . 'assets/images/logo.png';
   <meta name="description" content="Siodil offers advanced skincare solutions formulated with science and nature. Discover dermatologically tested products for healthy, radiant, and glowing skin.">
     <meta name="keywords" content="Siodil, skincare, beauty products, face cream, moisturizer, cleanser, serum, sunscreen, dermatologist tested, glowing skin, healthy skin">
 
-  <title>Siodil</title>
+ <title>
+  <?php echo isset($page_title) ? $page_title : "SIODIL – Doctor Recommanded"; ?>
+</title>
+
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -35,6 +38,8 @@ $logoUrl = $base_url . 'assets/images/logo.png';
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
 
+
+  
     <?php 
     
     if(isset($extra_css) && is_array($extra_css)) {
@@ -58,9 +63,14 @@ $logoUrl = $base_url . 'assets/images/logo.png';
 
     ?>
 
+  
+
+
 </head>
 
 <body>
+
+
  
 <!-- Top Info Bar -->
 <div class="top-bar text-center text-white">
@@ -109,8 +119,8 @@ $logoUrl = $base_url . 'assets/images/logo.png';
 
       
       <div class="search-box d-none d-lg-flex align-items-center">
-        <input type="text" class="form-control" placeholder="Search">
-        <i class="bi bi-search ms-2"></i>
+        <input type="text"  placeholder="Search">
+        
       </div>
     </div>
   </nav>

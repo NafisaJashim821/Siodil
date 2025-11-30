@@ -1,4 +1,27 @@
 /* ===== Product Background Section ===== */
+
+body {
+  font-family: 'Gotham';
+  color: #99ABB2;
+  background-color: #FCFCFC;
+  margin: 0;
+  overflow-x: hidden;
+  font-size: 18px;
+}
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white; /* Bootstrap blue */
+    font-weight: 500;
+}
+
+.filter-btn i {
+    font-size: 20px;
+}
+
 .product-bg {
   background-image: url("../images/nav_product/shop-banner-large.webp"); /* change path */
   background-repeat: no-repeat;
@@ -49,10 +72,11 @@
   color: #0096d6;
 }
 
-.product-text p {
-  font-size: 22px;
-  font-weight: 600;
-  color: #ff6b2c;
+.card-text p {
+  font-size: 18px;
+
+word-wrap: break-word;
+  
 }
 
 /* ===== Animation ===== */
@@ -93,21 +117,19 @@
 }
 
 
-/* ===== Layout ===== */
-/* ===== All Products Section ===== */
 .all-products {
   padding: 80px 0;
 }
 
-/* ===== Filter Section ===== */
+/*  Filter */
 .filter-section h2 {
   color: #0096d6;
   font-weight: 700;
   margin-bottom: 25px;
 }
 
-/* ===== Accordion Fix ===== */
-/* Accordion Styling */
+/* Accordion Fix */
+
 .accordion-item {
   border: none;
   border-bottom: 2px solid #00a5c8;
@@ -157,6 +179,8 @@
 
 
 
+
+
 /* ===== Product Grid Layout ===== */
 .product-grid {
   display: grid;
@@ -179,6 +203,8 @@
   padding: 20px;
   text-align: center;
   transition: all 0.4s ease;
+  background: transparent !important;
+    box-shadow: none !important;
 }
 
 .product-card:hover {
@@ -316,15 +342,15 @@
   margin-bottom: 15px;
 }
 
-.product-card button {
-  background: #0096d6;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 20px;
-  cursor: pointer;
-  transition: background 0.3s;
+.buy-now-btn {
+    padding: 6px 16px;   
+    font-size: 14px;
+    width: fit-content;   
+    display: inline-block;
+    border-radius: 6px;
+    margin-left: 40px;
 }
+
 
 .product-card button:hover {
   background: #007bb5;
