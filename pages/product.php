@@ -361,7 +361,7 @@ $apiUrl = "https://herlan.shop/wp-json/wc-api/v1/products?per_page=120";
 
 $ch = curl_init($apiUrl);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    "x-api-key: wc_fa758f3e00bda880ae87aff6da6def2361ccdfef3a9d2e6779b4b880923520fb"
+   
 ]);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
