@@ -379,3 +379,53 @@ word-wrap: break-word;
   color: #fff;
 }
 
+
+
+.filters-container {
+    display: flex;
+    justify-content: space-between; /* selectedFilters left, button right */
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#selectedFilters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* space between filter tags */
+}
+
+.filter-tag {
+    background-color: #e0f0ff;
+    color: #007bff;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-tag button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    color: #007bff;
+}
+
+.btn-clear {
+   
+    color: #0096d6;
+    padding: 8px 16px;
+    margin-left:  50px;
+    
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-clear:hover {
+    
+    transform: scale(1.05);
+}
