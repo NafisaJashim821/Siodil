@@ -1,3 +1,5 @@
+// accordion checkbox
+
 document.addEventListener("DOMContentLoaded", function () {
     const checkboxes = document.querySelectorAll('.accordion-body input[type="checkbox"]');
 
@@ -170,4 +172,123 @@ document.getElementById('clearFilters').addEventListener('click', function (e) {
 function filterProducts() {
     console.log('Filtering products with:', selectedFilters);
 }
+
+
+// loading
+
+let perPage = 12;
+let currentPage = 1;
+
+function showLoader() {
+    document.getElementById("loader").style.display = "block";
+}
+
+function hideLoader() {
+    document.getElementById("loader").style.display = "none";
+}
+
+function loadProducts(page = 1) {
+    currentPage = page;
+    showLoader();
+
+    const params = new URLSearchParams({ page });
+
+    
+    for (const [group, values] of Object.entries(selectedFilters)) {
+        if (values.length) params.append(group, values.join(','));
+    }
+
+    fetch(`fetch-products.php?${params.toString()}`)
+        .then(response => response.json())
+        .then(data => {
+            renderProducts(data.products, false);
+ 
+            renderPagination(data.total_pages, page);
+            hideLoader();
+        })
+        .catch(err => {
+            console.error(err);
+            hideLoader();
+        });
+}
+
+
+
+function renderProducts(products, append = false) {
+    const container = document.getElementById("product-container");
+
+    if (!append) container.innerHTML = ""; 
+
+    products.forEach(product => {
+        container.innerHTML += `
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100 product-card" style="border:none;">
+                    <img src="${product.img}" class="card-img-top">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title" style="color:#707070;">${product.title}</h5>
+                        <p class="card-text" style="font-family:'Gotham'; color:#99ABB2; font-size:18px;">
+                            ${product.desc}
+                        </p>
+                        <a href="product-page.php?id=${product.id}" class="btn buy-now-btn mt-auto" style="background-color:#139dd9;color:#fff;">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+}
+
+
+
+
+function renderPagination(totalPages, currentPage) {
+    const paginationContainer = document.getElementById("pagination");
+    paginationContainer.innerHTML = "";
+
+    function createPageButton(page) {
+        const btn = document.createElement("button");
+        btn.textContent = page;
+        btn.classList.add("page-btn");
+        if (page === currentPage) btn.classList.add("active");
+        btn.addEventListener("click", () => loadProducts(page));
+        return btn;
+    }
+
+    function addEllipsis() {
+        const span = document.createElement("span");
+        span.textContent = "...";
+        span.classList.add("ellipsis");
+        paginationContainer.appendChild(span);
+    }
+
+  
+    paginationContainer.appendChild(createPageButton(1));
+
+
+    if (currentPage > 3) {
+        addEllipsis();
+    }
+
+  
+    for (let p = currentPage - 1; p <= currentPage + 1; p++) {
+        if (p > 1 && p < totalPages) {
+            paginationContainer.appendChild(createPageButton(p));
+        }
+    }
+
+  
+    if (currentPage < totalPages - 2) {
+        addEllipsis();
+    }
+
+   
+    if (totalPages > 1) {
+        paginationContainer.appendChild(createPageButton(totalPages));
+    }
+}
+
+
+
+
+loadProducts(1);
+
 

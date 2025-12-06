@@ -1,7 +1,7 @@
 <?php
 $page_title = "Shop – SIODIL";
 
-$base_url = "http://localhost/siodil/"; // adjust according to your setup
+$base_url = "http://localhost/siodil/"; 
 
 $extra_css = [
     $base_url . 'assets/css/siodil.css',
@@ -47,7 +47,6 @@ include_once('../partials/header.php');
     <div id="selectedFilters" class="mb-3"></div>
     <a href="product.php" id="clearFilters" class="btn-clear">Clear All</a>
 </div>
-
 
 
 
@@ -228,13 +227,13 @@ if (!function_exists('makeIdMobile')) {
                         <div class="accordion-body">
                            <?php foreach ($options as $value): 
     $checkboxId = $cleanName . "_M_" . makeIdMobile($value);
-    $camelValue = toCamelCase($value); // <- MUST define this
+    $camelValue = toCamelCase($value); 
 ?>
     <label for="<?= $checkboxId ?>">
         <input type="checkbox" 
                id="<?= $checkboxId ?>" 
                class="filterCheck <?= $cleanName ?>" 
-               value="<?= $camelValue ?>"> <!-- safe now -->
+               value="<?= $camelValue ?>"> 
         <?= $value ?>
     </label><br>
 <?php endforeach; ?>
@@ -250,75 +249,22 @@ if (!function_exists('makeIdMobile')) {
 
 
             <!--  PRODUCT GRID  -->
- <div class="col-md-9">
+<div class="col-md-9">
 
-<?php
-$per_page = 12; 
-$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-
-
-$apiUrl = "https://herlan.shop/wp-json/wc-api/v1/products?per_page=120"; 
+    <!-- Loader -->
+ <div id="loader" style="display:none; text-align:center; padding:20px;">
+    <img src="../assets/images/Spinner@1x-1.0s-200px-200px.gif" width="60" alt="Loading...">
+</div>
 
 
-$ch = curl_init($apiUrl);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
    
-]);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$response = curl_exec($ch);
-curl_close($ch);
+    <div class="row g-4" id="product-container"></div>
 
-
-$all_products = json_decode($response);
-
-if (!$all_products) {
-    echo "<p style='color:red;'>Failed to load products.</p>";
-    return;
-}
-
-
-$total_products = count($all_products);
-$total_pages = ceil($total_products / $per_page);
-
-
-$products = array_slice($all_products, ($page - 1) * $per_page, $per_page);
-?>
-
-<!-- Product Grid -->
-<div class="row g-4 ">
-    <?php foreach ($products as $product): 
-        $title = $product->title ?? $product->name ?? "No Title";
-        $img   = $product->images[0]->src ?? "../assets/images/default.jpg";
-        $desc_raw = !empty($product->short_description)
-                        ? $product->short_description
-                        : $product->description ?? "";
-        $desc_clean = strip_tags(preg_replace('/\[[^\]]*\]/', '', $desc_raw));
-    ?>
-        <div class="col-md-4 col-sm-6 mb-4">
-            <div class="card h-100 product-card" style="border: none;">
-                <img src="<?php echo $img; ?>" class="card-img-top" alt="<?php echo $title; ?>">
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title" style="color:#707070;"><?php echo $title; ?></h5>
-                    <p class="card-text" style="font-family: 'Gotham'; color: #99ABB2; font-size:18px"><?php echo mb_strimwidth($desc_clean, 0, 50, "..."); ?></p>
-                    <a href="product-page.php?id=<?php echo $product->id; ?>" class="btn buy-now-btn mt-auto" style="background-color: #139dd9; color: #fff;">Buy Now</a>
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
-</div>
-
-<!-- Pagination -->
-<?php if ($total_pages > 1): ?>
-<div class="pagination-wrapper text-center mt-4">
-    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-        <a href="?page=<?php echo $i; ?>" class="page-btn <?php echo ($i == $page) ? 'active' : ''; ?>">
-            <?php echo $i; ?>
-        </a>
-    <?php endfor; ?>
-</div>
-<?php endif; ?>
+    <!-- Pagination -->
+    <div class="pagination-wrapper text-center mt-4" id="pagination"></div>
 
 </div>
+
 
 
 
