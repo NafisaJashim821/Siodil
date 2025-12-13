@@ -1,0 +1,44 @@
+ html,body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+    font-family: 'Gotham';
+ 
+
+  font-size: 18px;
+  color: #99ABB2;
+}
+.review-box {
+    max-width: 380px; /* smaller box */
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #eaeaea;
+    padding: 18px;
+}
+
+.compact-input {
+    border-radius: 8px !important;
+    padding: 6px 10px !important;
+    font-size: 12px !important;
+    border: 1px solid #cfcfcf !important;
+    transition: .2s;
+}
+
+.compact-input:focus {
+    border-color: #0d6efd !important;
+    box-shadow: 0 0 5px rgba(13,110,253,0.3);
+}
+
+.submit-btn {
+    background-color: #009CD8 !important; /* bright bootstrap blue */
+    color: white !important;
+    border: none !important;
+    font-size: 13px;
+    transition: .2s;
+}
+
+.submit-btn:hover {
+    background-color:#009CD8 !important; /* darker blue */
+    transform: translateY(-1px);
+}

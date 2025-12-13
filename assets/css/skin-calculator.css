@@ -342,3 +342,30 @@ body {
   background: #f66c53;
   color: #fff;
 }
+
+/* Quiz option buttons */
+.btn-outline-primary {
+    color: #009CD8;
+    border: 2px solid #009CD8;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active,
+.btn-outline-primary:focus-visible {
+    color: #fff !important;
+    background-color: #009CD8 !important;
+    border-color: #009CD8 !important;
+    box-shadow: none !important;
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+

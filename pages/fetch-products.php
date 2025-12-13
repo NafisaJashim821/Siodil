@@ -39,7 +39,9 @@ foreach ($products as $p) {
         "id" => $p->id,
         "title" => $p->title ?? $p->name ?? "No Title",
         "img" => $p->images[0]->src ?? "../assets/images/default.jpg",
-        "desc" => mb_strimwidth($cleanDesc, 0, 50, "..."),
+         "desc" => mb_strimwidth($cleanDesc, 0, 49, ""),
+         
+
     ];
 }
 

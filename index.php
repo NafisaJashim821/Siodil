@@ -16,31 +16,43 @@ include_once('partials/header.php');
     <div class="swiper-wrapper">
       
       <!-- Slide 1 -->
-      <div class="swiper-slide">
-        <img src="assets/images/bg/bg1-removebg-preview-removebg-preview.png" alt="Slide 1">
-        <div class="slide-text">
-          <h2>FIGHT ACNE USING THE BEST</h2>
-          <p>Get acne-free, healthier and brighter skin with scientifically proven formulation.</p>
+      <div class="swiper-slide hero-slide" 
+           data-desktop="assets/images/bg/Anti-Acne Desktop 1920X970.jpg"
+           data-mobile="assets/images/bg/Anti-Acne Phone W800XH1333.jpg">
+        <div class="slide-text1">
+          <h2>Acne Doesn’t <br> Stand a Chance</h2>
+          <p>Clinically tested, dermatologist-backed anti-acne solutions for clearer, healthier skin</p>
         </div>
       </div>
 
       <!-- Slide 2 -->
-      <div class="swiper-slide">
-        <img src="assets/images/bg/bg2-removebg-preview-removebg-preview.png" alt="Slide 2">
-        <div class="slide-text">
-          <h2>SAY GOODBYE TO ACNE FOREVER</h2>
-          <p>Scientifically formulated to reduce blemishes & improve skin texture.</p>
+      <div class="swiper-slide" 
+           data-desktop="assets/images/bg/Brightening Desktop 1920X970.jpg"
+           data-mobile="assets/images/bg/D-Pigment Phone W800XH1333.jpg">
+        <div class="slide-text2">
+          <h2>Say Goodbye to Dull Skin</h2>
+          <p>Clinically tested, dermatologist-backed formulas designed <br>
+to reduce dark spots and brighten your complexion.</p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide" 
+           data-desktop="assets/images/bg/D-Pigment Range Desktop 1920X970.jpg"
+           data-mobile="assets/images/bg/D-Pigment Phone W800XH1333.jpg">
+        <div class="slide-text3">
+          <h2>Target Pigmentation at the Source</h2>
+          <p>Clinically tested, dermatologist-approved advanced solutions 
+to reduce hyperpigmentation and melasma </p>
         </div>
       </div>
 
     </div>
-
-    <!-- Pagination -->
-     <div class="swiper-pagination"></div>
-  
-
+    <div class="swiper-pagination"></div>
   </div>
 </section>
+
+
 
 
 

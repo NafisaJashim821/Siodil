@@ -1,0 +1,135 @@
+
+/* ===== STEP 4 PAGE WRAPPER ===== */
+.recommend-box {
+    width: 85%;
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid #d9e7ff;
+    box-shadow: 0 4px 20px rgba(0, 34, 102, 0.08);
+}
+
+/* Main Title */
+.recommend-box h2 {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    color: #0070c9;
+    margin-bottom: 30px;
+}
+
+/* User Information Section */
+.user-info-box {
+    margin-bottom: 25px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.user-info-box strong {
+    color: #0070c9;
+}
+
+/* Product Row Container */
+.product-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 25px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Product Image */
+.product-row img {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+/* Product Info Section */
+.product-info {
+    flex: 1;
+}
+
+.product-info h4 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #005bb5;
+}
+
+.product-info p {
+    margin-top: 10px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* View Product Link */
+.product-info a {
+    display: inline-block;
+    margin-top: 12px;
+    font-weight: 600;
+    color: #0070c9;
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid #0070c9;
+    border-radius: 4px;
+    transition: 0.3s ease;
+}
+
+.product-info a:hover {
+    background: #0070c9;
+    color: #fff;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+    .recommend-box {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .product-row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .product-row img {
+        margin: 0 auto 15px;
+    }
+}
+
+
+
+.cg-accordion-item {
+    border: 1px solid #ccc;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.cg-accordion-title {
+    background: #f7f7f7;
+    width: 100%;
+    text-align: left;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.cg-accordion-content {
+    display: none;
+    padding: 10px 15px;
+    background: #fff;
+}
+
+.cg-accordion-content.show {
+    display: block;
+}
+

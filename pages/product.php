@@ -252,9 +252,21 @@ if (!function_exists('makeIdMobile')) {
 <div class="col-md-9">
 
     <!-- Loader -->
- <div id="loader" style="display:none; text-align:center; padding:20px;">
-    <img src="../assets/images/Spinner@1x-1.0s-200px-200px.gif" width="60" alt="Loading...">
+ <div class="row g-4" id="skeleton-loader" style="display:none;">
+  <?php for($i=0; $i<6; $i++): ?>
+    <div class="col-md-4 col-sm-6">
+      <div class="skeleton-card">
+        <div class="skeleton-img"></div>
+        <div class="skeleton-line w-75"></div>
+        <div class="skeleton-line w-100"></div>
+        <div class="skeleton-btn"></div>
+      </div>
+    </div>
+  <?php endfor; ?>
 </div>
+
+
+
 
 
    

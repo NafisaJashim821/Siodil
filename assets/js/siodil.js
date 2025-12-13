@@ -1,3 +1,21 @@
+const slides = document.querySelectorAll('.swiper-slide');
+
+function setSlideBackground() {
+  slides.forEach(slide => {
+    const bg = window.innerWidth <= 768 ? slide.getAttribute('data-mobile') : slide.getAttribute('data-desktop');
+    slide.style.backgroundImage = `url('${bg}')`;
+  });
+}
+
+// Set background on load
+setSlideBackground();
+
+// Update on window resize
+window.addEventListener('resize', setSlideBackground);
+
+
+
+
 var swiper = new Swiper(".mySwiper", {
     loop: true,
     pagination: {
@@ -58,6 +76,8 @@ var productSwiper = new Swiper(".productSwiper", {
   breakpoints: {
     768: { slidesPerView: 2 },
     1024: { slidesPerView: 3 },
+   
+
   },
 });
 

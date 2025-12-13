@@ -174,26 +174,55 @@ function filterProducts() {
 }
 
 
-// loading
+// loading products 
 
 let perPage = 12;
 let currentPage = 1;
-
+ 
 function showLoader() {
-    document.getElementById("loader").style.display = "block";
+    const skeleton = document.getElementById("skeleton-loader");
+    const container = document.getElementById("product-container");
+
+    if(skeleton && container){
+        skeleton.style.display = "flex";
+        skeleton.style.opacity = "1";
+        container.style.display = "none";
+    }
 }
+
 
 function hideLoader() {
-    document.getElementById("loader").style.display = "none";
+    const skeleton = document.getElementById("skeleton-loader");
+    const container = document.getElementById("product-container");
+
+    if(skeleton && container){
+        skeleton.style.opacity = "0";
+        setTimeout(() => {
+            skeleton.style.display = "none";
+            container.style.display = "flex";
+        }, 300);
+    }
 }
+
 
 function loadProducts(page = 1) {
     currentPage = page;
+const section = document.querySelector(".all-products");
+
+
+
+    section.scrollTop = 0
+ 
     showLoader();
 
-    const params = new URLSearchParams({ page });
+   
 
-    
+
+
+
+
+  
+    const params = new URLSearchParams({ page });
     for (const [group, values] of Object.entries(selectedFilters)) {
         if (values.length) params.append(group, values.join(','));
     }
@@ -201,17 +230,18 @@ function loadProducts(page = 1) {
     fetch(`fetch-products.php?${params.toString()}`)
         .then(response => response.json())
         .then(data => {
+            
             renderProducts(data.products, false);
- 
             renderPagination(data.total_pages, page);
-            hideLoader();
+
+          
+            setTimeout(hideLoader, 200);
         })
         .catch(err => {
             console.error(err);
             hideLoader();
         });
 }
-
 
 
 function renderProducts(products, append = false) {
@@ -221,14 +251,15 @@ function renderProducts(products, append = false) {
 
     products.forEach(product => {
         container.innerHTML += `
-            <div class="col-md-4 col-sm-6 mb-4">
+          <div class="col-12 col-sm-6 col-lg-4 mb-4">
                 <div class="card h-100 product-card" style="border:none;">
                     <img src="${product.img}" class="card-img-top">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title" style="color:#707070;">${product.title}</h5>
+                        <h5 class="card-title" >${product.title}</h5>
                         <p class="card-text" style="font-family:'Gotham'; color:#99ABB2; font-size:18px;">
-                            ${product.desc}
-                        </p>
+    ${product.desc ?? ""}
+</p>
+
                         <a href="product-page.php?id=${product.id}" class="btn buy-now-btn mt-auto" style="background-color:#139dd9;color:#fff;">Buy Now</a>
                     </div>
                 </div>
@@ -236,8 +267,6 @@ function renderProducts(products, append = false) {
         `;
     });
 }
-
-
 
 
 function renderPagination(totalPages, currentPage) {
@@ -263,32 +292,16 @@ function renderPagination(totalPages, currentPage) {
   
     paginationContainer.appendChild(createPageButton(1));
 
+    if (currentPage > 3) addEllipsis();
 
-    if (currentPage > 3) {
-        addEllipsis();
-    }
-
-  
     for (let p = currentPage - 1; p <= currentPage + 1; p++) {
-        if (p > 1 && p < totalPages) {
-            paginationContainer.appendChild(createPageButton(p));
-        }
+        if (p > 1 && p < totalPages) paginationContainer.appendChild(createPageButton(p));
     }
 
-  
-    if (currentPage < totalPages - 2) {
-        addEllipsis();
-    }
+    if (currentPage < totalPages - 2) addEllipsis();
 
-   
-    if (totalPages > 1) {
-        paginationContainer.appendChild(createPageButton(totalPages));
-    }
+    if (totalPages > 1) paginationContainer.appendChild(createPageButton(totalPages));
 }
 
 
-
-
 loadProducts(1);
-
-
