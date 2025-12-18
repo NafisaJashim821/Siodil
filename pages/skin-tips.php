@@ -68,7 +68,7 @@ include_once('../partials/header.php');
             <img src="../assets/images/skin_care_pic/s1.webp" alt="Ato Range" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
-            <h4 class="fw-bold">Siodil’s Ato Range: More Than Moisture, a Holistic Skincare Experience</h4>
+            <h2 class="fw-bold">Siodil’s Ato Range: More Than Moisture, a Holistic Skincare Experience</h2>
             <p>Get ready to embark on a skincare journey like never before as we unravel the power of Siodil’s Ato series.</p>
             <a href="#" class="read-more">Read more »</a>
           </div>
@@ -82,7 +82,7 @@ include_once('../partials/header.php');
             <img src="../assets/images/skin_care_pic/s2.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
-            <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
+            <h2 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h2>
             <p>Have you ever been intimidated by your acne? If you have, know that you are not alone.</p>
             <a href="#" class="read-more">Read more »</a>
           </div>
@@ -96,7 +96,7 @@ include_once('../partials/header.php');
             <img src="../assets/images/skin_care_pic/s3.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
-            <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
+            <h2 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h2>
             <p>Have you ever been intimidated by your acne? If you have, know that you are not alone.</p>
             <a href="#" class="read-more">Read more »</a>
           </div>
@@ -110,7 +110,7 @@ include_once('../partials/header.php');
             <img src="../assets/images/skin_care_pic/s4.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
-            <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
+            <h2 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h2>
             <p>Have you ever been intimidated by your acne? If you have, know that you are not alone.</p>
             <a href="#" class="read-more">Read more »</a>
           </div>
@@ -124,7 +124,7 @@ include_once('../partials/header.php');
             <img src="../assets/images/skin_care_pic/s5.jpg" alt="Ato Range" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
-            <h4 class="fw-bold">Siodil’s Ato Range: More Than Moisture, a Holistic Skincare Experience</h4>
+            <h2 class="fw-bold">Siodil’s Ato Range: More Than Moisture, a Holistic Skincare Experience</h2>
             <p>Get ready to embark on a skincare journey like never before as we unravel the power of Siodil’s Ato series.</p>
             <a href="#" class="read-more">Read more »</a>
           </div>
@@ -138,7 +138,7 @@ include_once('../partials/header.php');
             <img src="../assets/images/skin_care_pic/s6.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
-            <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
+            <h2 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h2>
             <p>Have you ever been intimidated by your acne? If you have, know that you are not alone.</p>
             <a href="#" class="read-more">Read more »</a>
           </div>
@@ -152,7 +152,7 @@ include_once('../partials/header.php');
             <img src="../assets/images/skin_care_pic/s7.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
-            <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
+            <h2 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h2>
             <p>Have you ever been intimidated by your acne? If you have, know that you are not alone.</p>
             <a href="#" class="read-more">Read more »</a>
           </div>
@@ -166,7 +166,7 @@ include_once('../partials/header.php');
             <img src="../assets/images/skin_care_pic/s8.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
-            <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
+            <h2 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h2>
             <p>Have you ever been intimidated by your acne? If you have, know that you are not alone.</p>
             <a href="#" class="read-more">Read more »</a>
           </div>
@@ -180,7 +180,7 @@ include_once('../partials/header.php');
             <img src="../assets/images/skin_care_pic/s9.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
-            <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
+            <h2 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h2>
             <p>Have you ever been intimidated by your acne? If you have, know that you are not alone.</p>
             <a href="#" class="read-more">Read more »</a>
           </div>
@@ -194,7 +194,7 @@ include_once('../partials/header.php');
             <img src="../assets/images/skin_care_pic/s10.jpg" alt="Acne" class="img-fluid rounded-3">
           </div>
           <div class="col-7">
-            <h4 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h4>
+            <h2 class="fw-bold">Acne breakouts! Know the reasons & get the solutions</h2>
             <p>Have you ever been intimidated by your acne? If you have, know that you are not alone.</p>
             <a href="#" class="read-more">Read more »</a>
           </div>

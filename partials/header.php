@@ -8,6 +8,9 @@ if(!isset($base_url)) {
 
 $logoUrl = $base_url . 'assets/images/logo.png';
 
+
+
+
 ?>
 
 
@@ -118,10 +121,26 @@ $logoUrl = $base_url . 'assets/images/logo.png';
       </div>
 
       
-      <div class="search-box d-none d-lg-flex align-items-center">
-        <input type="text"  placeholder="Search">
-        
-      </div>
+<div class="search-box d-none d-lg-flex align-items-center">
+    <form action="<?php echo $base_url; ?>pages/search.php" method="get" class="d-flex w-100">
+        <input type="text" name="q" class="form-control me-2" 
+       style="
+           border: none; 
+           outline: none; 
+           box-shadow: none; 
+           background-color: transparent;  
+           color: #333; 
+           font-weight: 200; 
+           font-size: 0.95rem;
+       "
+>
+
+    </form>
+</div>
+
+
+
+
     </div>
   </nav>
 </section>

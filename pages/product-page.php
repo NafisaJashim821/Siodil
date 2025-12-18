@@ -1,200 +1,168 @@
-
-<?php 
-
-$base_url = "http://localhost/siodil/"; // adjust according to your setup
-
-
-
+<?php
+$base_url = "http://localhost/siodil/";
 $extra_css = [
-  '../assets/css/siodil.css',          
-  '../assets/css/product-page.css'  
+    $base_url . 'assets/css/siodil.css',
+    $base_url . 'assets/css/product-page.css',
+    $base_url . 'assets/icomoon/style.css',
+    $base_url . 'assets/font/fonts.css'
 ];
-
 $extra_js = [
-  '../assets/js/siodil.js', 
-  '../assets/js/product-page.js'         
+    '../assets/js/siodil.js',
+    '../assets/js/product-page.js'
 ];
 
 $logoUrlOther = "../assets/images/logo.png";
 $footerUrlOther ="../assets/images/SIODIL-White-Logo-small-01-1.png";
 
-
 include_once('../partials/header.php'); 
+
+
+$productId = isset($_GET['id']) ? intval($_GET['id']) : 0;
+if (!$productId) die("Product ID missing");
+
+
+
+$apiUrl = "https://herlan.shop/wp-json/wc-api/v1/products/$productId";
+
+$ch = curl_init($apiUrl);
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HTTPHEADER => [
+        "x-api-key: wc_fa758f3e00bda880ae87aff6da6def2361ccdfef3a9d2e6779b4b880923520fb"
+    ]
+]);
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+
+if ($httpCode !== 200) die("Product not found");
+
+$product = json_decode($response, true);
+
+
+
+
+
+
+function stripShortcode($html) {
+    if (!$html) return "";
+    $html = preg_replace('/\[\/?cg_accordion.*?\]/', '', $html);
+    return strip_tags($html);
+}
+function getDescriptionFromShortDescription($html) {
+    if (!$html) return '';
+
+    if (preg_match(
+        '/\[cg_accordion\s+title="Description"(?:\s+open="open")?\](.*?)\[\/cg_accordion\]/s',
+        $html,
+        $match
+    )) {
+        return trim(strip_tags($match[1]));
+    }
+
+    return '';
+}
+
+
+
+function parseAccordions($html, $maxPoints = 5) {
+    preg_match_all('/\[cg_accordion title="(.*?)"(?: open="open")?\](.*?)\[\/cg_accordion\]/s', $html, $matches, PREG_SET_ORDER);
+    $accordions = [];
+    foreach ($matches as $m) {
+        $title = $m[1];
+        $content = stripShortcode($m[2]);
+        $lines = array_filter(array_map('trim', explode("\n", $content)));
+        $preview = array_slice($lines, 0, $maxPoints);
+        $accordions[] = [
+            'title' => $title,
+            'content_preview' => implode("\n", $preview),
+            'content_full' => $content
+        ];
+    }
+    return $accordions;
+}
+
+
+$description = stripShortcode($product['short_description']);
+$description_preview = implode(' ', array_slice(explode(' ', $description), 0, 43)) . '...';
+$accordions = parseAccordions($product['short_description']);
+$images = $product['images'] ?? [];
 
 ?>
 
 <section class="product-detail">
-  <div class="container product-container">
-  
-  
-<div class="product-gallery">
-  <!-- Big Image  -->
-  <div class="swiper main-swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="../assets/images/nav_product/anti-acne-cleanser.webp" alt="Anti-Acne Cleanser">
-      </div>
-      <div class="swiper-slide">
-        <img src="../assets/images/nav_product/anti-acne-cleanser.webp" alt="Anti-Acne Cleanser Side View">
-      </div>
-      <div class="swiper-slide">
-        <img src="../assets/images/nav_product/anti-acne-cleanser.webp" alt="Anti-Acne Cleanser Back">
-      </div>
-    </div>
-  </div>
+    <div class="container product-container" style="display:flex; flex-wrap:wrap; gap:60px;">
 
-  <!--  Navigation -->
-  <div class="swiper thumb-swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="../assets/images/nav_product/anti-acne-cleanser.webp" alt="">
-      </div>
-      <div class="swiper-slide">
-        <img src="../assets/images/nav_product/anti-acne-cleanser.webp" alt="">
-      </div>
-      <div class="swiper-slide">
-        <img src="../assets/images/nav_product/anti-acne-cleanser.webp" alt="">
-      </div>
-    </div>
-  </div>
-</div>
+        <!-- Product Gallery -->
+        <div class="product-gallery" style="flex:1; min-width:300px;">
+            <div class="swiper main-swiper">
+                <div class="swiper-wrapper">
+                    <?php foreach($images as $img): ?>
+                        <div class="swiper-slide">
+                            <img src="<?= $img['src'] ?>" alt="">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
 
+            <div class="swiper thumb-swiper">
+                <div class="swiper-wrapper">
+                    <?php foreach($images as $img): ?>
+                        <div class="swiper-slide">
+                            <img src="<?= $img['src'] ?>" alt="">
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
 
-    <!-- Product Info -->
-    <div class="product-info">
-      <h1>Anti-Acne Cleanser</h1>
-      <h3>Product Description</h3>
-      <p>
-        Siodil offers an efficient acne cleanser with an advanced formulation. Infused with 
-        Glycolic Acid and Salicylic Acid, Siodil Anti-Acne Cleanser exfoliates dead skin cells 
-        and removes impurities and dirt from the face surface.
-      </p>
+        <!-- Product Info -->
+        <div class="product-details-wrapper" style="flex:1; min-width:300px;">
+            <div class="product-info">
+                <h1><?= $product['name'] ?></h1>
+                <h3>Product Description</h3>
+                <p><?= $description_preview ?></p>
+            
+            </div>
 
-      <a href="buy.php" class="buy-btn">Buy Now</a>
+            <!-- Accordion Sections -->
+            <div class="accordion" id="accordionExample" style="margin-top:40px;">
+    <?php 
+    
+    $skipTitles = ['Description', 'Features & Details'];
 
-      <h3>Skin Concern</h3>
-      <p>Acne / Pimples, Clogged Pores, Dark Spots, Uneven Skin tone</p>
+    foreach($accordions as $i => $acc): 
+        $num = $i+1; 
 
-      <h3>Skin Type</h3>
-      <p >Oily to Acne Prone Skin</p>
+        $titleNormalized = trim(html_entity_decode($acc['title']));
 
-      <div class="benefits">
-    <h3>Ingredients based benefits</h3>
-    <ul>
-      <li>✔ Glycolic Acid exfoliates dead skin cells and leaves the skin fresh and clean</li>
-      <li>✔ Salicylic Acid removes impurities and extra oil to keep pores clear</li>
-      <li>✔ Glycolic Acid creates a pleasantly foamy reaction to remove dirt from the face surface</li>
-    </ul>
-</div> 
-
-<div class="accordion" id="accordionExample">
-
-  <!-- Accordion Item 1 -->
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Ingredients
-        <span class="acc-icon" aria-hidden="true">
-            <span class="icon-plus">+</span>
-            <span class="icon-minus">−</span>
-          </span>
-      </button>
-    </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>Key Ingredients:</strong> Glycolic Acid, Salicylic Acid<br><br>
-        <strong>Other Ingredients:</strong> AQUA, SODIUM COCO SULFATE, COCAMIDOPROPYL BETAINE, COCAMIDE MEA, GLYCOLIC ACID, PEG12 DIMETHICONE, PEG-150 PENTAERYTHRITYL TETRA STEARATE, PEG-6 CAPRIC/CAPRYLIC GLYCERIDES, GLYCOL DISTEARATE, SALICYLIC ACID, LICORICE ROOT EXTRACT, SHEA BUTTER, CHAMOMILE EXTRACT, ALOE VERA LEAF EXTRACT, TANGERINE OIL, ORANGE FRAGRANCE, AMMONIUM HYDROXIDE, PHENOXYETHANOL, POTASSIUM SORBATE.
-      </div>
-    </div>
-  </div>
-
-  <!-- Accordion Item 2 -->
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        How to Use
-         <span class="acc-icon" aria-hidden="true">
-            <span class="icon-plus">+</span>
-            <span class="icon-minus">−</span>
-          </span>
-      </button>
-    </h2>
-    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <ul>
-      <li>✔ Apply a dime-sized amount on a wet face. Massage gently, then rinse</li>
-      <li>✔ Carry on with your regular skincare routine.</li>
-      <li>✔ Carry on with your regular skincare routine.</li>
-    </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- Accordion Item 3 -->
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingThree">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Product Safety
-         <span class="acc-icon" aria-hidden="true">
-            <span class="icon-plus">+</span>
-            <span class="icon-minus">−</span>
-          </span>
-      </button>
-    </h2>
-    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
        
-        <ul>
-      <li>✔ Paraben-Free</li>
-      <li>✔ Paraben-Free</li>
-      <li>✔ Paraben-Free</li>
-    </ul>
-      
-      </div>
-    </div>
-  </div>
-   <!-- Accordion Item 4 -->
- 
-   <div class="accordion-item">
-    <h2 class="accordion-header" id="headingFour">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
-        Disclaimer
-         <span class="acc-icon" aria-hidden="true">
-            <span class="icon-plus">+</span>
-            <span class="icon-minus">−</span>
-          </span>
-      </button>
-    </h2>
-    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        This cleanser contains salicylic and glycolic acid as active ingredients. Please be advised that initial usage may cause irritation. To get better results, please use it for at least 2 weeks. In case of irritation or allergic reaction, please contact a dermatologist.
-      </div>
-    </div>
-  </div>
-
+        if (in_array($titleNormalized, $skipTitles)) continue;
+    ?>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="heading<?= $num ?>">
+                <button class="accordion-button <?= $i==0?'':'collapsed' ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?= $num ?>" aria-expanded="<?= $i==0?'true':'false' ?>" aria-controls="collapse<?= $num ?>" style="padding:15px 20px; font-weight:600; background:#f9f9f9; border:none;">
+                    <?= $acc['title'] ?>
+                    <span class="acc-icon" style="margin-left:auto; font-weight:700; font-size:16px; color:#009CD8;">
+                        <span class="icon-plus">+</span>
+                        <span class="icon-minus">−</span>
+                    </span>
+                </button>
+            </h2>
+            <div id="collapse<?= $num ?>" class="accordion-collapse collapse <?= $i==0?'show':'' ?>" aria-labelledby="heading<?= $num ?>" data-bs-parent="#accordionExample">
+                <div class="accordion-body" style="padding:20px; background:#fafafa; color:#555; font-size:15px; line-height:1.6;">
+                    <?= nl2br($acc['content_preview']) ?>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
 </div>
 
-
-
-
-      </div>
-    </div>
+        </div>
 
     </div>
-
-   
-
-  </div>
-</section> 
- 
-
-
-
-
-
+</section>
 
 <?php include_once('../partials/footer.php'); ?>
 
-  
-</body>
-</html>
+

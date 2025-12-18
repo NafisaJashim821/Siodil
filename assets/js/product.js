@@ -176,8 +176,9 @@ function filterProducts() {
 
 // loading products 
 
-let perPage = 12;
+let perPage = 10;
 let currentPage = 1;
+
  
 function showLoader() {
     const skeleton = document.getElementById("skeleton-loader");
@@ -207,40 +208,46 @@ function hideLoader() {
 
 function loadProducts(page = 1) {
     currentPage = page;
-const section = document.querySelector(".all-products");
 
-
-
-    section.scrollTop = 0
- 
     showLoader();
 
-   
+    const params = new URLSearchParams({
+        page: page,
+        per_page: perPage
+    });
 
-
-
-
-
-  
-    const params = new URLSearchParams({ page });
     for (const [group, values] of Object.entries(selectedFilters)) {
         if (values.length) params.append(group, values.join(','));
     }
 
     fetch(`fetch-products.php?${params.toString()}`)
-        .then(response => response.json())
+        .then(res => res.json())
         .then(data => {
-            
-            renderProducts(data.products, false);
+            renderProducts(data.products);
             renderPagination(data.total_pages, page);
-
-          
-            setTimeout(hideLoader, 200);
+            hideLoader();
         })
         .catch(err => {
             console.error(err);
             hideLoader();
         });
+}
+
+function stripShortcode(html) {
+    if (!html) return "";
+    return html
+        .replace(/\[\/?cg_accordion.*?\]/g, '')
+        .replace(/<[^>]*>/g, '')
+        .trim();
+}
+
+function transformProducts(apiProducts) {
+    return apiProducts.map(p => ({
+        id: p.id,
+        title: p.name,
+        desc: stripShortcode(p.short_description),
+        img: p.images?.[0]?.src || 'default-product.png'
+    }));
 }
 
 
@@ -267,6 +274,9 @@ function renderProducts(products, append = false) {
         `;
     });
 }
+
+
+
 
 
 function renderPagination(totalPages, currentPage) {
@@ -305,3 +315,4 @@ function renderPagination(totalPages, currentPage) {
 
 
 loadProducts(1);
+

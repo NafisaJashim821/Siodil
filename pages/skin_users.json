@@ -33,5 +33,10 @@
         "name": "nafiza",
         "email": "abc@gmail.com",
         "skin_type": "Acne"
+    },
+    {
+        "name": "nafiza",
+        "email": "abc@gmail.com",
+        "skin_type": "Normal"
     }
 ]

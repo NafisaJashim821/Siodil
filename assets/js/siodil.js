@@ -23,7 +23,7 @@ var swiper = new Swiper(".mySwiper", {
       clickable: true,
     },
     autoplay: {
-      delay: 3000,
+      delay: 3000000,
       disableOnInteraction: false,
     },
  
@@ -39,7 +39,7 @@ var brightswiper = new Swiper(".lineupSwiper", {
   spaceBetween: 60,
   speed: 1000,
   autoplay: {
-    delay: 2000,
+    delay: 2000000000,
     disableOnInteraction: false,
   },
   pagination: {
@@ -60,9 +60,11 @@ var brightswiper = new Swiper(".lineupSwiper", {
 var productSwiper = new Swiper(".productSwiper", {
   slidesPerView: 1,
   spaceBetween: 20,
-  loop: true,
+  loop: true,             
+  centeredSlides: false,
+  watchOverflow: true,      
   autoplay: {
-    delay: 30000000,
+    delay: 3000,
     disableOnInteraction: false,
   },
   pagination: {
@@ -76,10 +78,11 @@ var productSwiper = new Swiper(".productSwiper", {
   breakpoints: {
     768: { slidesPerView: 2 },
     1024: { slidesPerView: 3 },
+    2560:{slidesPerView: 4}
    
-
   },
 });
+
 
 
 

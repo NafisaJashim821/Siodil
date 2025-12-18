@@ -55,7 +55,7 @@ body {
   justify-content: left; /* text aligned left */
 }
 
-/* ===== Text Section ===== */
+
 .product-text {
   text-align: left;
   color: #0096d6;
@@ -133,7 +133,7 @@ word-wrap: break-word;
 .accordion-item {
   border: none;
   border-bottom: 2px solid #00a5c8;
-  margin-bottom: 8px;
+  margin-bottom: -8px;
   background: transparent;
 }
 
@@ -184,7 +184,7 @@ word-wrap: break-word;
 /* ===== Product Grid Layout ===== */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 30px;
   margin-top: 30px;
 }
@@ -291,7 +291,7 @@ word-wrap: break-word;
   gap: 20px;
 }
 
-/* Small tablets / large phones: 2 cards (426px to 768px) */
+/*  tablets  */
 @media (max-width: 768px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -538,10 +538,7 @@ word-wrap: break-word;
   }
 }
 
-/* ===== Buy Now Button Shimmer ===== */
 
-
-/* ===== Mobile Skeleton Adjustment ===== */
 @media (max-width: 576px) {
   .skeleton-img { height: 180px; }
   .skeleton-card { padding: 15px; }

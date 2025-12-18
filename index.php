@@ -10,6 +10,7 @@ $extra_css = [
 $extra_js  = ['assets/js/siodil.js'];
 
 include_once('partials/header.php'); 
+
 ?>
 <section class="slider-section">
   <div class="swiper mySwiper">
@@ -363,24 +364,24 @@ to reduce hyperpigmentation and melasma </p>
 
 
 
-<h2 class="main-section-title lazy-section">Perfect skin possible?</h2>
-
-
-
-
-
 <section class="blog-highlight-section lazy-section">
-  <div class="blog-card">
-    <div class="blog-image">
-      <img src="assets/images/acne.jpg" alt="Perfect Skin">
-    </div>
+  <div class="container-xxl">
+    <h2 class="main-section-title">Perfect skin possible?</h2>
 
-    <div class="blog-content">
-      <h2>Acne breakouts! Know the reasons & get the solutions</h2>
-      <a href="#" class="blog-btn">Read now to find out</a>
+    <div class="blog-card">
+      <div class="blog-image">
+        <img src="assets/images/acne.jpg" alt="Perfect Skin">
+      </div>
+
+      <div class="blog-content">
+        <h2>Acne breakouts! Know the reasons & get the solutions</h2>
+      </div>
     </div>
   </div>
 </section>
+
+
+
 
 <section class="dual-grid-section lazy-section">
   <div class="dual-grid-container">

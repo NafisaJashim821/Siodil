@@ -98,9 +98,9 @@
   .why-siodil-section p { font-size: 18px; }
 }
 
-/* ---------------------------------------------------
+/* 
    2️⃣ WHY SIODIL DESCRIPTION
-------------------------------------------------------*/
+*/
 .why-siodil-description p {
   font-size: 18px;
   line-height: 1.8;
@@ -145,7 +145,7 @@
 .skin-analyzer-text p {
   font-size: 18px;
   line-height: 1.8;
-  color: var(--dark-text);
+
   text-align: justify;
    color:  #99ABB2;
 }
@@ -167,7 +167,7 @@
 @media (max-width: 768px) {
   .skin-analyzer-content {
     flex-direction: column;
-    text-align: center; /* centers the paragraph and image */
+    text-align: center; 
   }
   .skin-analyzer-text,
   .skin-analyzer-image {
@@ -175,13 +175,16 @@
   }
   .skin-analyzer-text h2 {
     font-size: 26px;
-    text-align: left;   /* keep h2 aligned to the left */
+    text-align: left;  
     margin-right: 0;
-    margin-bottom: 10px; /* space below h2 */
+    margin-bottom: 10px; 
   }
   .skin-analyzer-text p {
-    font-size: 14px;
-    text-align: center;  /* paragraph can stay centered */
+   font-size: 18px;
+  line-height: 1.8;
+
+  text-align: justify;
+   color:  #99ABB2;
   }
   .skin-analyzer-image img {
     max-width: 90%;
@@ -219,7 +222,7 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-  .dermatologist-section h2 { font-size: 28px; }
+  .dermatologist-section h2 { font-size: 24px; }
 }
 
 /* Big screen */

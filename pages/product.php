@@ -36,13 +36,19 @@ include_once('../partials/header.php');
     <div class="container">
 
         <!--  MOBILE FILTER BUTTON  -->
-   <div class="d-md-none text-end mb-3">
+  <!-- Filter Button for Mobile & Tablet -->
+<div class="d-lg-none text-end mb-3">
+
   <button class="btn  d-flex align-items-center gap-2"
-          data-bs-toggle="offcanvas" data-bs-target="#filterCanvas">
+          type="button"
+          data-bs-toggle="offcanvas" 
+          data-bs-target="#filterCanvas"
+          aria-controls="filterCanvas">
     <i class="fa-solid fa-sliders" style="font-size: 1.2rem;"></i>
     Filters
   </button>
 </div>
+
 <div class="filters-container">
     <div id="selectedFilters" class="mb-3"></div>
     <a href="product.php" id="clearFilters" class="btn-clear">Clear All</a>
@@ -53,7 +59,8 @@ include_once('../partials/header.php');
         <div class="row">
 
             <!--  DESKTOP FILTER SIDEBAR  -->
-            <div class="col-md-3 d-none d-md-block">
+           <div class="col-lg-3 d-none d-lg-block">
+
                 <div class="filter-section">
                     <h2>All Products</h2>
 
@@ -101,7 +108,7 @@ function makeId($str) {
 <?php 
 if (!function_exists('toCamelCase')) {
     function toCamelCase($str) {
-        $str = preg_replace('/[^A-Za-z0-9 ]/', '', $str); // remove special chars
+        $str = preg_replace('/[^A-Za-z0-9 ]/', '', $str); 
         $words = explode(' ', $str);
         $camel = strtolower(array_shift($words));
         foreach ($words as $w) {
@@ -200,51 +207,53 @@ if (!function_exists('makeIdMobile')) {
 ?>
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="filterCanvas">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title">Filters</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body overflow-auto" style="max-height: 100vh;">
-        <div class="accordion" id="productFilterMobile">
-            <?php foreach ($filters as $filterName => $options): 
-                $cleanName = makeIdMobile($filterName);
-                $buttonId = "by{$cleanName}M";
-                $collapseId = "collapse{$cleanName}M";
-            ?>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading<?= $cleanName ?>M">
-                        <button class="accordion-button collapsed" type="button"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#<?= $collapseId ?>"
-                                aria-expanded="false"
-                                aria-controls="<?= $collapseId ?>"
-                                id="<?= $buttonId ?>">
-                            By <?= $filterName ?>
-                        </button>
-                    </h2>
-                    <div id="<?= $collapseId ?>" class="accordion-collapse collapse"
-                         aria-labelledby="heading<?= $cleanName ?>M">
-                        <div class="accordion-body">
-                           <?php foreach ($options as $value): 
-    $checkboxId = $cleanName . "_M_" . makeIdMobile($value);
-    $camelValue = toCamelCase($value); 
-?>
-    <label for="<?= $checkboxId ?>">
-        <input type="checkbox" 
-               id="<?= $checkboxId ?>" 
-               class="filterCheck <?= $cleanName ?>" 
-               value="<?= $camelValue ?>"> 
-        <?= $value ?>
-    </label><br>
-<?php endforeach; ?>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Filters</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body overflow-auto" style="max-height: 100vh;">
+    <div id="selectedFilters" class="mb-3"></div>
+    <a href="product.php" id="clearFilters" class="btn btn-outline-secondary w-100 mb-3">Clear All</a>
 
-                        </div>
-                    </div>
-                </div>
+    <div class="accordion" id="productFilterMobile">
+      <?php foreach ($filters as $filterName => $options): 
+          $cleanName = makeIdMobile($filterName);
+          $buttonId = "by{$cleanName}M";
+          $collapseId = "collapse{$cleanName}M";
+      ?>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading<?= $cleanName ?>M">
+          <button class="accordion-button collapsed" type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#<?= $collapseId ?>"
+                  aria-expanded="false"
+                  aria-controls="<?= $collapseId ?>"
+                  id="<?= $buttonId ?>">
+            By <?= $filterName ?>
+          </button>
+        </h2>
+        <div id="<?= $collapseId ?>" class="accordion-collapse collapse" aria-labelledby="heading<?= $cleanName ?>M">
+          <div class="accordion-body">
+            <?php foreach ($options as $value): 
+                $checkboxId = $cleanName . "_M_" . makeIdMobile($value);
+                $camelValue = toCamelCase($value); 
+            ?>
+            <label for="<?= $checkboxId ?>" class="d-block mb-1">
+              <input type="checkbox" 
+                     id="<?= $checkboxId ?>" 
+                     class="filterCheck <?= $cleanName ?>" 
+                     value="<?= $camelValue ?>"> 
+              <?= $value ?>
+            </label>
             <?php endforeach; ?>
+          </div>
         </div>
+      </div>
+      <?php endforeach; ?>
     </div>
+  </div>
 </div>
+
 
 
 
